@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+h3 {
+  font-size: 1.875rem; //3xl
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 3.75rem; //6xl
+  font-weight: bold;
+}
