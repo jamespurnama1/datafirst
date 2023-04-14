@@ -14,7 +14,7 @@ import { RouterLink, RouterView } from 'vue-router'
   </nav>
 
   <RouterView />
-  <footer class="absolute bottom-6 flex px-24 justify-between text-xs w-full">
+  <footer class="absolute bottom-6 flex px-36 justify-between text-xs w-full">
     <p>Copyright © 2023 Datafirst - All Rights Reserved.</p>
     <span>
       <router-link to="/privacy">Privacy Policy</router-link>
