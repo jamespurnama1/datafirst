@@ -6,10 +6,10 @@ import { RouterLink, RouterView } from 'vue-router'
   <nav class="items-center relative p-6 top-0 justify-between flex bg-white w-full">
     <router-link to="/"><img class="h-8 w-auto" src="/DataFirstLogo.webp" alt="DataFirst Logo" /></router-link>
     <ul class="flex">
-      <li class="px-6"><router-link to="/about">About Us</router-link></li>
-      <li class="px-6"><router-link to="/solutions">Solutions</router-link></li>
-      <li class="px-6"><router-link to="/contact">Contact</router-link></li>
-      <li class="px-6"><router-link to="/blog">Blog</router-link></li>
+      <li class="px-6 hover:text-teal-900"><router-link to="/about">About Us</router-link></li>
+      <li class="px-6 hover:text-teal-900"><router-link to="/solutions">Solutions</router-link></li>
+      <li class="px-6 hover:text-teal-900"><router-link to="/contact">Contact</router-link></li>
+      <li class="px-6 hover:text-teal-900"><router-link to="/blog">Blog</router-link></li>
     </ul>
   </nav>
 

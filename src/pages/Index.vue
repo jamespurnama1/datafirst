@@ -40,7 +40,7 @@ onUnmounted(() => {
 })
 
 const types = {
-  "Government & Public Sector": "Unparalleled insights for informed decision-making in the public sector.",
+  "Government &amp;<br>Public Sector": "Unparalleled insights for informed decision-making in the public sector.",
   Hospitality: "Elevated customer experience and revenue growth with advanced analytics solutions.",
   Education: "Enhanced learning outcomes and optimized operations with simplified yet advanced insights.",
   Automotive: "Reduced costs and increased revenue growth with powerful analytics tools.",
@@ -126,7 +126,7 @@ const clients = [
       <div class="flex flex-col mx-24 my-36">
         <h1 class="split text-white font-bold text-8xl my-2 text-center lg:text-left"><span>It </span><span>all </span><span>starts </span><br><span>with&nbsp;</span><span>data.</span></h1>
         <p class="my-2 text-white text-2xl text-center lg:text-left">Growth starts here.<br>Unleash the power of data with the right resources and&nbsp;insights.</p>
-        <button class="bg-teal-900 rounded-3xl my-2 py-3 px-5 text-white font-bold lg:ml-0 mx-auto text-lg"><router-link to="/">Find Out How</router-link></button>
+        <button class="bg-teal-900 hover:bg-teal-500 hover:scale-110 transition-all rounded-3xl my-2 py-3 px-5 text-white hover:text-teal-900 font-bold lg:ml-0 mx-auto text-lg"><router-link to="/">Find Out How</router-link></button>
       </div>
     <video loop muted autoplay playsinline class="object-fill -z-10 absolute top-0 left-0 brightness-75 w-full h-full" src="/Hero.mp4"/>
     </section>
@@ -144,7 +144,7 @@ const clients = [
     <section class="grid lg:grid-cols-3 gap-12 mx-24 min-h-[90vh]">
       <div class="appear relative bg-white rounded-3xl min-h-[480px] shadow-lg overflow-hidden" v-for="(desc, title, index) in types" >
         <div class="p-5 flex flex-col justify-end h-full relative z-20">
-          <h3>{{ title }}</h3>
+          <h3 v-html="title"></h3>
           <p>{{ desc }}</p>
         </div>
         <div class="absolute top-0 w-full h-full bg-gradient-to-t to-transparent from-white from-20% to-50% z-10" />
@@ -160,7 +160,7 @@ const clients = [
         :class="[solution.dashboard ? 'to-30% pl-24' : 'to-15% pl-72', index >= 1 ? 'text-left items-start' : 'text-right items-end', index === 1 ? '-mr-52 bg-gradient-to-l !pl-10 !pr-24' : '-ml-52 bg-gradient-to-r']">
           <h3 v-html="solution.title" />
           <p>{{ solution.desc }}</p>
-          <button class="bg-white transition-all hover:shadow-[0_0_50px_0_rgba(0,0,0,0.3)] hover:shadow-teal-900/80 duration-300 ring-teal-900 hover:ring-0 ring-1 rounded-3xl my-2 py-3 px-5 text-teal-900 font-bold text-lg"
+          <button class="bg-white hover:bg-teal-900 transition-all hover:shadow-[0_0_50px_0_rgba(0,0,0,0.3)] hover:shadow-teal-900/80 duration-300 ring-teal-900 hover:ring-0 ring-1 rounded-3xl my-2 py-3 px-5 text-teal-900 hover:text-white font-bold text-lg"
           :class="[index >= 1 ? 'mr-auto' : 'ml-auto']">{{ solution.CTA }}</button>
         </div>
         <div class="my-auto mx-10 rounded-3xl shadow-lg overflow-hidden flex-shrink-0 h-3/5">
@@ -191,7 +191,7 @@ const clients = [
     <section>
       <div class="appear bg-gray rounded-t-3xl py-12 lg:px-36 px-12 h-[75vh] flex flex-col lg:flex-row justify-center items-center w-full">
         <h2 class="split text-8xl leading-none text-center lg:text-left"><span>Tomorrow's</span><span> Growth,</span><br><span>Starts </span><span class="text-teal-900">Today.</span></h2>
-        <button class="bg-teal-900 rounded-3xl lg:my-2 my-5 py-3 px-5 text-white font-bold lg:ml-auto transition-all duration-300 text-lg hover:shadow-[0_0_50px_0_rgba(0,0,0,0.3)] hover:shadow-teal-900/80"><router-link to="/contact">Schedule a Demo</router-link></button>
+        <button class="bg-teal-900 hover:scale-110 rounded-3xl lg:my-2 my-5 py-3 px-5 text-white font-bold lg:ml-auto transition-all duration-300 text-lg hover:shadow-[0_0_50px_0_rgba(0,0,0,0.3)] hover:shadow-teal-900/80"><router-link to="/contact">Schedule a Demo</router-link></button>
       </div>
     </section>
   </main>
