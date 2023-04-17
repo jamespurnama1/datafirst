@@ -3,11 +3,58 @@
 @tailwind utilities;
 
 h3 {
-  font-size: 1.875rem; //3xl
   font-weight: bold;
+  font-size: 1.25rem; //xl
+
+  @media (min-width: 1024px) {
+    font-size: 1.875rem; //3xl
+  }
 }
 
 h2 {
-  font-size: 3.75rem; //6xl
   font-weight: bold;
+  font-size: 1.5rem; //2xl
+
+  @media (min-width: 1024px) {
+    font-size: 3.75rem; //6xl
+  }
+}
+
+.slideIn-enter-active,
+.slideIn-leave-active {
+  transition: all 0.5s ease;
+}
+
+.slideIn-enter-from,
+.slideIn-leave-to {
+  opacity: 50%;
+  transform: translateY(-100%);
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+p {
+  font-size: 0.75rem; //sm
+
+  @media (min-width: 1024px) {
+    font-size: 1rem; //base
+  }
+}
+
+.appear {
+  opacity: 0;
+  transform: translateY(100px);
+}
+
+.split span {
+  opacity: 0;
+  transform: translateY(0.1em);
 }
