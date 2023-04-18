@@ -12,13 +12,7 @@ defineProps<{
 gsap.registerPlugin(ScrollTrigger);
 
 onMounted(async() => {
-  await new Promise(resolve => {
-    if (!window) {
-      setTimeout(resolve, 1000)
-    } else {
-      resolve
-    }
-  });
+  await new Promise(resolve => setTimeout(resolve, 1000));
   ScrollTrigger.batch(".appear", {
     onEnter: (elements, triggers) => {
       gsap.to(elements, { opacity: 1, y: 0, stagger: 0.15 });

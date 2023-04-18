@@ -6,7 +6,7 @@ import Partners from '@/components/Partners.vue';
 
 gsap.registerPlugin(ScrollTrigger);
 
-onMounted(async () => {
+onMounted(async() => {
   await new Promise(resolve => setTimeout(resolve, 1000));
   ScrollTrigger.batch(".appear", {
     onEnter: (elements, triggers) => {

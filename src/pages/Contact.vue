@@ -3,7 +3,6 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { onMounted, onBeforeUnmount, ref } from 'vue';
 
-gsap.registerPlugin(ScrollTrigger);
 
 const state = ref('sales')
 
@@ -12,7 +11,9 @@ function changeState(value: string) {
   state.value = value
 }
 
-onMounted(async () => {
+gsap.registerPlugin(ScrollTrigger);
+
+onMounted(async() => {
   await new Promise(resolve => setTimeout(resolve, 1000));
   ScrollTrigger.batch('.split span', {
     onEnter: (elements) => {

@@ -77,12 +77,22 @@ watch(() => route.name, () => {
     </Transition>
   </nav>
 
-  <router-view v-slot="{ Component, route }">
-    <transition name="fade">
-      <component :width="width" :is="Component" :key="route.path" />
-    </transition>
+  <router-view v-slot="{ Component }">
+    <template v-if="Component">
+      <transition name="fade">
+        <Suspense>
+          <component :is="Component" :width="width" />
+          <template #fallback>
+            <div class="flex justify-center items-center h-screen">
+              <h1 class="text-xl">Loading...</h1>
+            </div>
+          </template>
+        </Suspense>
+      </transition>
+    </template>
   </router-view>
-  <footer class="absolute lg:bottom-6 bottom-3 flex lg:flex-row flex-col items-center justify-center px-6 lg:px-36 lg:justify-between text-center lg:text-left w-full" :class="[darkMode ? 'bg-black text-white' : 'bg-white text-black']">
+  
+  <footer class="absolute lg:bottom-6 bottom-3 flex lg:flex-row flex-col items-center justify-center px-6 lg:px-36 lg:justify-between text-center lg:text-left w-full" :class="[darkMode ? 'text-white' : 'text-black']">
     <p>Copyright © 2023 Datafirst - All Rights Reserved.</p>
     <span class="flex">
       <p><router-link to="/privacy">Privacy Policy</router-link></p>
