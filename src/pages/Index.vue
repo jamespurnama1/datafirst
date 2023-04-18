@@ -62,7 +62,7 @@ const solutions = [
     CTA: "Explore Data Analytics",
     dashboard: "/DataAnalytics.jpeg",
     dashboardAlt: "",
-    image: "/DataAnalyticsBG.png",
+    image: "/DataAnalyticsBG.jpg",
     imageAlt: ""
   },
   {
@@ -71,7 +71,7 @@ const solutions = [
     CTA: "Explore FLOW",
     dashboard: "FLOW.jpeg",
     dashboardAlt: "",
-    image: "FLOWBG.png",
+    image: "FLOWBG.jpg",
     imageAlt: ""
   },
   {
@@ -80,7 +80,7 @@ const solutions = [
     CTA: "Explore IT Recruitment",
     dashboard: "",
     dashboardAlt: "",
-    image: "ITRecruitmentBG.jpeg",
+    image: "ITRecruitmentBG.jpg",
     imageAlt: ""
   }
 ]

@@ -80,7 +80,7 @@ const partners = {
       </div>
       <div class="absolute z-10 top-0 left-0 w-full h-full lg:bg-gradient-to-r bg-gradient-to-b from-transparent from-15% to-white lg:to-30% to-25%" />
       <div class="absolute z-10 top-0 left-0 w-full h-full lg:bg-gradient-to-tr bg-gradient-to-r from-white to-transparent lg:to-30% to-70%" />
-      <img class="mr-auto absolute top-0 left-0 lg:w-1/3 w-full object-cover lg:h-full" :src="`/${type}BG.png`" alt="BG" />
+      <img class="mr-auto absolute top-0 left-0 lg:w-1/3 w-full object-cover lg:h-full" :src="`/${type}BG.jpg`" alt="BG" />
     </div>
   </section>
 </template>

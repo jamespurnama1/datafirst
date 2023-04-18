@@ -94,10 +94,10 @@ watch(() => route.name, () => {
   </router-view>
   
   <footer class="absolute lg:bottom-6 bottom-3 flex lg:flex-row flex-col items-center justify-center px-6 lg:px-36 lg:justify-between text-center lg:text-left w-full" :class="[darkMode ? 'text-white' : 'text-black']">
-    <p>Copyright © 2023 Datafirst - All Rights Reserved.</p>
+    <p class="text-sm">Copyright © 2023 Datafirst - All Rights Reserved.</p>
     <span class="flex">
-      <p><router-link to="/privacy">Privacy Policy</router-link></p>
-      <p><router-link class="ml-3" to="/terms">Terms &amp; Condition</router-link></p>
+      <p class="text-sm"><router-link to="/privacy">Privacy Policy</router-link></p>
+      <p class="text-sm"><router-link class="ml-3" to="/terms">Terms &amp; Condition</router-link></p>
     </span>
   </footer>
   <!-- </client-only> -->

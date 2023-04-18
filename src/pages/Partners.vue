@@ -6,7 +6,7 @@ import PartnersSection from '@/components/PartnersSection.vue';
 onMounted(async() => {
   await new Promise(resolve => setTimeout(resolve, 1000));
   ScrollTrigger.batch(".appear", {
-    onEnter: (elements, triggers) => {
+    onEnter: (elements) => {
       gsap.to(elements, { opacity: 1, y: 0, stagger: 0.15 });
     },
     start: "top 90%",

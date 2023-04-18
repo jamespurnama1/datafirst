@@ -63,8 +63,8 @@ onBeforeUnmount(() => {
   <main class="w-screen text-white">
     <section class="flex items-center lg:justify-end relative overflow-hidden h-[75vh] !m-0">
       <div class="flex flex-col mx-6 my-12 lg:mx-24 lg:my-36 lg:w-1/2 lg:ml-auto">
-        <h1 class="split text-white font-bold text-4xl lg:text-8xl my-2 text-left"><span>At </span><span>a </span><span>time </span><br><span>where </span><span>data </span><span>is </span><span>king,<br></span><span>we </span><span>help </span><span>you </span><span>make </span><span>the </span><span>most </span><span>out </span><span>of </span><span>it.</span></h1>
-        <p class="my-2 text-white lg:text-2xl text-left">Datafirst Solutions is a company based in Dubai, UAE that specializes in data and analytics. Our team consists of passionate problem-solvers and data experts with the experience and capability that enable us to leverage the power of data, to ultimately help businesses make informed decisions and grow&nbsp;better.</p>
+        <h1 class="split text-white font-bold text-4xl lg:text-6xl my-2 text-left"><span>At </span><span>a </span><span>time </span><br><span>where </span><span>data </span><span>is </span><span>king,<br></span><span>we </span><span>help </span><span>you </span><span>make </span><span>the </span><span>most </span><span>out </span><span>of </span><span>it.</span></h1>
+        <p class="my-2 text-white lg:text-xl text-left">Datafirst Solutions is a company based in Dubai, UAE that specializes in data and analytics. Our team consists of passionate problem-solvers and data experts with the experience and capability that enable us to leverage the power of data, to ultimately help businesses make informed decisions and grow&nbsp;better.</p>
       </div>
       <img class="absolute bottom-0 lg:left-0 -z-10 object-contain w-auto h-full lg:brightness-100 brightness-50" src="@/assets/aboutHero.jpg"/>
     </section>
@@ -81,10 +81,10 @@ onBeforeUnmount(() => {
         </div>
       </div>
     </section>
-    <section class="appear relative overflow-hidden bg-white rounded-3xl mx-12 lg:mx-36 my-5 lg:my-12 py-6 lg:py-12 lg:px-36 px-4 flex lg:justify-between items-center justify-center lg:flex-row flex-col lg:gap-0 gap-5">
+    <section class="appear relative overflow-hidden bg-white rounded-3xl mx-12 lg:mx-36 my-5 lg:my-12 py-6 lg:py-12 lg:px-24 px-4 flex lg:justify-between items-center justify-center lg:flex-row flex-col lg:gap-0 gap-5">
     <h2 class="text-black font-bold split"><span>We </span><span>have </span><span>work </span><span>with </span><span>some </span><span>of </span><span>the </span><span>region's </span><span class="text-teal-900">leading</span>&nbsp;<span>companies</span></h2>
     <div class="flex content-center flex-col items-center h-full">
-      <img class="appear object-contain w-20 lg:w-36 h-auto my-2 lg:my-5 mx-5" v-for="client in clients" :src="`/logo/${client.replace(/ /g, '_')}.png`" :alt="client"/>
+      <img class="appear object-contain w-20 lg:w-48 h-auto my-2 lg:my-5 mx-5" v-for="client in clients" :src="`/logo/${client.replace(/ /g, '_')}.png`" :alt="client"/>
     </div>
   </section>
   <section class="appear text-center flex flex-col lg:gap-6 items-center justify-center py-5 md:py-12 lg:px-36 px-12">
