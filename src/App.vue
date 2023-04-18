@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { gsap } from 'gsap';
+import { gsap } from "@/gsap";
 import { ref, onMounted, onUnmounted, watch } from 'vue';
 import { RouterLink, RouterView, useRoute } from 'vue-router';
 
@@ -53,6 +53,7 @@ watch(() => route.name, () => {
 </script>
 
 <template>
+  <!-- <client-only> -->
   <nav class="lg:items-center flex-col lg:flex-row relative py-3 px-6 lg:py-6 lg:px-12 top-0 justify-between flex origin-top transition-transform duration-500" :class="[darkMode ? 'bg-black' : 'bg-white']">
     <div class="flex justify-between items-center relative z-50">
       <router-link to="/">
@@ -99,6 +100,7 @@ watch(() => route.name, () => {
       <p><router-link class="ml-3" to="/terms">Terms &amp; Condition</router-link></p>
     </span>
   </footer>
+  <!-- </client-only> -->
 </template>
 
 <style scoped>

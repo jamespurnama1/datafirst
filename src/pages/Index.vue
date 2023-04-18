@@ -1,18 +1,18 @@
 <script setup lang="ts">
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { gsap, ScrollTrigger } from "@/gsap";
 import { onMounted, onBeforeUnmount } from 'vue';
 import Blog from '@/components/Blog.vue';
-import Partners from '@/components/Partners.vue';
+import PartnersSection from '@/components/PartnersSection.vue';
 
 defineProps<{
   width: number
 }>()
 
-gsap.registerPlugin(ScrollTrigger);
 
+// gsap.registerPlugin(ScrollTrigger);
 onMounted(async() => {
   await new Promise(resolve => setTimeout(resolve, 1000));
+  // setTimeout(() => {
   ScrollTrigger.batch(".appear", {
     onEnter: (elements, triggers) => {
       gsap.to(elements, { opacity: 1, y: 0, stagger: 0.15 });
@@ -35,7 +35,7 @@ onMounted(async() => {
       start: "50% 70%",
       onLeave: elements => gsap.set(elements, { opacity: 1, y: 0, overwrite: true }),
     })
-
+  // }, 1000)
   // ScrollTrigger.refresh();
 })
 
@@ -151,7 +151,7 @@ const clients = [
         <img class="absolute bottom-5 md:bottom-12 lg:right-36 right-12 h-auto w-16 md:w-24 lg:w-48" src="/logo/Jumeirah_Group.png" alt="Jumeirah Group Logo" />
       </div>
     </section>
-    <Partners />
+    <PartnersSection />
     <Blog :width="width" />
     <section>
       <div class="appear bg-gray rounded-t-3xl py-12 lg:px-36 px-12 h-[75vh] flex flex-col lg:flex-row justify-center items-center w-full">

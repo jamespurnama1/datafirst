@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { gsap, ScrollTrigger } from "@/gsap";
 import { onMounted, onBeforeUnmount } from 'vue';
 
-gsap.registerPlugin(ScrollTrigger);
-
 onMounted(async() => {
+  // setTimeout(() => {
+  // gsap.registerPlugin(ScrollTrigger);
   await new Promise(resolve => setTimeout(resolve, 1000));
   ScrollTrigger.batch(".appear", {
     onEnter: (elements, triggers) => {
@@ -29,7 +28,7 @@ onMounted(async() => {
     start: "50% 70%",
     onLeave: elements => gsap.set(elements, { opacity: 1, y: 0, overwrite: true }),
   })
-
+  // }, 1000)
   // ScrollTrigger.refresh();
 })
 
@@ -71,6 +70,7 @@ const partners = {
   ]
 }
 </script>
+
 <template>
   <section>
     <div class="appear relative overflow-hidden bg-white min-h-[300px] lg:h-72 rounded-3xl shadow-lg py-6 px-6 lg:px-12 mb-3 lg:my-12 flex flex-col lg:flex-row lg:gap-72 lg:min-h-[240px]" v-for="(images, type) in partners">
@@ -84,5 +84,6 @@ const partners = {
     </div>
   </section>
 </template>
+
 <style scoped lang="scss">
 </style>

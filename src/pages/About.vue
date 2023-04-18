@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { gsap, ScrollTrigger } from "@/gsap";
 import { onMounted, onBeforeUnmount } from 'vue';
 
 const clients = [
@@ -23,7 +22,7 @@ const awards = {
   "ISTQB Certfied Tester": "ISTQB"
 }
 
-gsap.registerPlugin(ScrollTrigger);
+// gsap.registerPlugin(ScrollTrigger);
 
 onMounted(async() => {
   await new Promise(resolve => setTimeout(resolve, 1000));

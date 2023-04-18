@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { gsap, ScrollTrigger } from "@/gsap";
 import { onMounted, onBeforeUnmount, ref } from 'vue';
 
 
@@ -11,7 +10,7 @@ function changeState(value: string) {
   state.value = value
 }
 
-gsap.registerPlugin(ScrollTrigger);
+// gsap.registerPlugin(ScrollTrigger);
 
 onMounted(async() => {
   await new Promise(resolve => setTimeout(resolve, 1000));
