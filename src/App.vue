@@ -32,6 +32,7 @@ function checkRoute() {
 
 function dark() {
   darkMode.value = true
+  if (!window) return
   gsap.to('body', {
     backgroundColor: 'black'
   })
@@ -39,6 +40,7 @@ function dark() {
 
 function light() {
   darkMode.value = false
+  if (!window) return
   gsap.to('body', {
     backgroundColor: 'white'
   })
@@ -47,7 +49,7 @@ function light() {
 watch(() => route.name, () => {
   checkRoute()
   opened.value = false
-}, { immediate: true })
+})
 </script>
 
 <template>
