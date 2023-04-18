@@ -124,7 +124,7 @@ const clients = [
           <p class="text-xs">{{ desc }}</p>
         </div>
         <div class="absolute top-0 w-full h-full bg-gradient-to-t to-transparent from-white from-30% lg:from-20% lg:to-50% to-70% z-10" />
-        <img class="absolute h-3/4 lg:h-full w-full top-0 object-cover" :src="`/types/${index+1}.png`" :alt="title" rel="preload">
+        <img class="absolute h-3/4 lg:h-full w-full top-0 object-cover" :src="`/types/${index+1}.jpg`" :alt="title" rel="preload">
       </div>
     </section>
     <section>
