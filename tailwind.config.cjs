@@ -14,6 +14,7 @@ module.exports = {
         },
         'orange': '#F59709',
         'gray': '#F5F5F5',
+        'darkGray': '#2E2F34',
       }
     },
   },

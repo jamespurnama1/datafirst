@@ -6,6 +6,7 @@ import { RouterLink, RouterView, useRoute } from 'vue-router';
 const width = ref(0);
 const opened = ref(false);
 const darkMode = ref(false);
+const solutions = ref(false);
 
 function resize() {
   width.value = window.innerWidth
@@ -21,6 +22,10 @@ onUnmounted(() => {
 })
 
 const route = useRoute();
+
+function openSolutions(e: Event) {
+  solutions.value = !solutions.value
+}
 
 function checkRoute() {
   if (route.path === '/about' || route.path === '/contact') {
@@ -47,19 +52,21 @@ function light() {
 }
 
 watch(() => route.name, () => {
-  checkRoute()
-  opened.value = false
+  checkRoute();
+  opened.value = false;
+  solutions.value = false;
+  window.scrollTo(0, 0);
 })
 </script>
 
 <template>
   <!-- <client-only> -->
-  <nav class="lg:items-center flex-col lg:flex-row relative py-3 px-6 lg:py-6 lg:px-12 top-0 justify-between flex origin-top transition-transform duration-500" :class="[darkMode ? 'bg-black' : 'bg-white']">
+  <nav class="lg:items-center flex-col lg:flex-row fixed z-50 shadow-lg w-full py-3 px-6 lg:py-6 lg:px-12 top-0 justify-between flex origin-top transition-transform duration-500" :class="[darkMode ? 'bg-black' : 'bg-white']">
     <div class="flex justify-between items-center relative z-50">
       <router-link to="/">
         <img class="h-6 lg:h-8 w-auto transition-transform" :src="darkMode ? '/DataFirstLogoWhite.webp' : '/DataFirstLogoBlack.webp'" alt="DataFirst Logo" />
       </router-link>
-      <div @click="opened = !opened" v-if="width <= 1024" class="h-8 w-8 p-2 flex flex-col justify-around cursor-pointer origin-top">
+      <div @click="() => {opened = !opened; solutions = false}" v-if="width <= 1024" class="h-8 w-8 p-2 flex flex-col justify-around cursor-pointer origin-top">
         <span class="rounded w-6 h-0.5 transition-transform duration-500 origin-[25%_-150%]" :class="[opened ? 'rotate-45' : '', darkMode ? 'bg-white' : 'bg-black']"></span>
         <span class="rounded w-6 h-0.5 transition-transform duration-500"  :class="[opened ? 'opacity-0' : '', darkMode ? 'bg-white' : 'bg-black']"></span>
         <span class="rounded w-6 h-0.5 transition-transform duration-500 origin-[0%_100%]"  :class="[opened ? '-rotate-45' : '', darkMode ? 'bg-white' : 'bg-black']"></span>
@@ -67,18 +74,30 @@ watch(() => route.name, () => {
     </div>
     <Transition name="slideIn">
     <ul v-show="width > 1024 || (opened && width <= 1024)" class="flex lg:flex-row flex-col lg:bg-transparent lg:m-0 ml-auto m-auto text-center transition-opacity absolute lg:relative lg:h-auto h-screen lg:w-auto w-screen lg:justify-normal justify-center z-30 lg:left-auto left-0" :class="[darkMode ? 'bg-black text-white' : 'bg-white text-black']">
-      <li v-if="width <= 1024" class="py-2 lg:py-0 px-6 hover:text-teal-900"><router-link to="/">Home</router-link></li>
-      <li class="py-2 lg:py-0 px-6 hover:text-teal-900"><router-link to="/about">About Us</router-link></li>
-      <li class="py-2 lg:py-0 px-6 hover:text-teal-900"><router-link to="/solutions">Solutions</router-link></li>
-      <li class="py-2 lg:py-0 px-6 hover:text-teal-900"><router-link to="/partners">Partners</router-link></li>
-      <li class="py-2 lg:py-0 px-6 hover:text-teal-900"><router-link to="/contact">Contact</router-link></li>
-      <li class="py-2 lg:py-0 px-6 hover:text-teal-900"><router-link to="/contact">Careers</router-link></li>
-      <li class="py-2 lg:py-0 px-6 hover:text-teal-900"><router-link to="/blog">Blog</router-link></li>
+      <li v-if="width <= 1024" class="py-2 lg:py-0 px-6 hover:text-teal-900" :class="[solutions ? '-translate-y-[200%] lg:translate-y-0' :'']"><router-link to="/"><p>Home</p></router-link></li>
+      <li class="cursor-pointer py-2 lg:py-0 px-6 hover:text-teal-900" :class="[solutions ? '-translate-y-[200%] lg:translate-y-0' :'']"><router-link to="/about"><p>About Us</p></router-link></li>
+      <li class="flex flex-col items-center cursor-pointer py-2 lg:py-0 px-6 hover:text-teal-900 relative z-10" @click="e => openSolutions(e)" :class="[solutions ? 'text-teal-900' : '', darkMode ? 'bg-black' : 'bg-white', solutions ? '-translate-y-[200%] lg:translate-y-0' : '']">
+        <p>Solutions</p>
+        <Transition :name="width > 1024 ? 'slideIn' : 'fade'">
+          <ul class="absolute flex flex-col top-[110%] lg:mt-8 lg:mb-0 mt-2 mb-10 rounded-3xl shadow-lg -z-10 w-[150%]" :class="[darkMode ? 'bg-darkGray' : 'bg-gray']" v-if="solutions" v-closable="{
+              exclude: ['button'],
+              handler: 'onClose'
+            }">
+            <li class="cursor-pointer py-2 lg:py-4 px-6 hover:text-teal-900" :class="[darkMode ? 'text-white' : 'text-black']"><router-link to="/solutions/DataAnalytics"><p>Data Analytics</p></router-link></li>
+            <li class="cursor-pointer py-2 lg:py-4 px-6 hover:text-teal-900" :class="[darkMode ? 'text-white' : 'text-black']"><router-link to="/solutions/Recruitment"><p>IT Recruitment &amp; Outsourcing</p></router-link></li>
+            <li class="cursor-pointer py-2 lg:py-4 px-6 hover:text-teal-900" :class="[darkMode ? 'text-white' : 'text-black']"><router-link to="/solutions/FLOW"><p>FLOW</p></router-link></li>
+          </ul>
+        </Transition>
+      </li>
+      <li class="cursor-pointer py-2 lg:py-0 px-6 hover:text-teal-900 transition-transform" :class="[solutions ? 'translate-y-[200%] lg:translate-y-0' :'']"><router-link to="/partners"><p>Partners</p></router-link></li>
+      <li class="cursor-pointer py-2 lg:py-0 px-6 hover:text-teal-900 transition-transform" :class="[solutions ? 'translate-y-[200%] lg:translate-y-0' : '']"><router-link to="/contact"><p>Contact</p></router-link></li>
+      <li class="cursor-pointer py-2 lg:py-0 px-6 hover:text-teal-900 transition-transform" :class="[solutions ? 'translate-y-[200%] lg:translate-y-0' : '']"><router-link to="/contact"><p>Careers</p></router-link></li>
+      <li class="cursor-pointer py-2 lg:py-0 px-6 hover:text-teal-900 transition-transform" :class="[solutions ? 'translate-y-[200%] lg:translate-y-0' : '']"><router-link to="/blog"><p>Blog</p></router-link></li>
     </ul>
     </Transition>
   </nav>
 
-  <router-view v-slot="{ Component }">
+  <router-view v-slot="{ Component }" :key="route.path">
     <template v-if="Component">
       <transition name="fade">
         <Suspense>
@@ -93,16 +112,18 @@ watch(() => route.name, () => {
     </template>
   </router-view>
   
-  <footer class="absolute lg:bottom-6 bottom-3 flex lg:flex-row flex-col items-center justify-center px-6 lg:px-36 lg:justify-between text-center lg:text-left w-full" :class="[darkMode ? 'text-white' : 'text-black']">
-    <p class="text-sm">Copyright © 2023 Datafirst - All Rights Reserved.</p>
+  <footer class="absolute lg:bottom-6 md:bottom-7 bottom-3 flex md:flex-row flex-col items-center justify-center px-6 md:px-10 lg:px-36 md:justify-between text-center  w-full" :class="[darkMode ? 'text-white' : 'text-black']">
+    <p class="text-xs 2xl:text-base">Copyright © 2023 Datafirst - All Rights Reserved.</p>
     <span class="flex">
-      <p class="text-sm"><router-link to="/privacy">Privacy Policy</router-link></p>
-      <p class="text-sm"><router-link class="ml-3" to="/terms">Terms &amp; Condition</router-link></p>
+      <p class="text-xs 2xl:text-base"><router-link to="/privacy">Privacy Policy</router-link></p>
+      <p class="text-xs 2xl:text-base"><router-link class="ml-3" to="/terms">Terms &amp; Condition</router-link></p>
     </span>
   </footer>
   <!-- </client-only> -->
 </template>
 
 <style scoped>
-
+li p {
+ font-size: 1.5rem;
+}
 </style>

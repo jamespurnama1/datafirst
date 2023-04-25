@@ -74,9 +74,9 @@ const partners = {
 <template>
   <section>
     <div class="appear relative overflow-hidden bg-white min-h-[300px] lg:h-72 rounded-3xl shadow-lg py-6 px-6 lg:px-12 mb-3 lg:my-12 flex flex-col lg:flex-row lg:gap-72 lg:min-h-[240px]" v-for="(images, type) in partners">
-      <h3 class="lg:text-left text-lg lg:text-5xl mt-auto relative z-20">{{ type }}</h3>
+      <h3 class="lg:text-left text-lg md:text-3xl lg:text-5xl 2xl:text-7xl mt-auto relative z-20">{{ type }}</h3>
       <div class="flex flex-1 justify-center items-center flex-wrap relative z-20">
-        <img class="object-contain w-24 lg:w-36 h-8 lg:h-16 mx-2 lg:mx-5 lg:my-3" v-for="image in images" :src="image" :alt="image">
+        <img class="object-contain w-24 md:w-32 lg:w-36 2xl:w-40 h-8 md:h-12 lg:h-16 2xl:h-28 mx-2 lg:mx-5 lg:my-3 2xl:mx-10" v-for="image in images" :src="image" :alt="image">
       </div>
       <div class="absolute z-10 top-0 left-0 w-full h-full lg:bg-gradient-to-r bg-gradient-to-b from-transparent from-15% to-white lg:to-30% to-25%" />
       <div class="absolute z-10 top-0 left-0 w-full h-full lg:bg-gradient-to-tr bg-gradient-to-r from-white to-transparent lg:to-30% to-70%" />

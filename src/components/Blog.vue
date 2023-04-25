@@ -30,11 +30,11 @@ const showPosts = computed(() => {
 
 <template>
   <section class="grid gap-3 lg:gap-12 grid-cols-2 lg:grid-cols-3">
-    <div class="appear lg:px-6 px-3 py-3 lg:py-12 bg-white h-[50vw] lg:h-[512px] relative overflow-hidden rounded-3xl shadow-lg flex flex-col justify-end" v-for="(post, index) in showPosts">
-      <div class="absolute z-10 top-0 left-0 w-full h-full bg-gradient-to-b from-transparent from-30% to-white to-50%" />
-      <img class="absolute top-0 left-0 w-full h-1/2" :src="`/blog/${index+1}.png`" :alt="post.title" />
-      <h3 class="relative z-20 text-xs lg:text-3xl" v-html="post.title" />
-      <RouterLink :to="post.slug" class="text-orange mt-1 relative z-20 hover:underline"><p>Continue Reading</p></RouterLink>
+    <div class="appear lg:px-6 px-3 py-3 md:px-6 lg:py-12 bg-white h-[50vw] lg:h-[512px] relative overflow-hidden rounded-3xl shadow-lg flex flex-col justify-end" v-for="(post, index) in showPosts">
+      <div class="absolute z-10 top-0 left-0 w-full h-full bg-gradient-to-b from-transparent from-30% md:from-40% to-white to-50% md:to-75%" />
+      <img class="absolute top-0 left-0 w-full md:h-3/4 h-1/2 object-cover" :src="`/blog/${index+1}.png`" :alt="post.title" />
+      <h3 class="relative z-20 text-xs md:text-lg lg:text-3xl" v-html="post.title" />
+      <RouterLink :to="post.slug" class="text-orange mt-1 relative z-20 hover:underline"><p class="md:text-lg">Continue Reading</p></RouterLink>
     </div>
   </section>
 </template>

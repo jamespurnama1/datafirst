@@ -6,8 +6,12 @@ h3 {
   font-weight: bold;
   font-size: 1.25rem; //xl
 
-  @media (min-width: 1024px) {
+  @media (min-width: 768px) {
     font-size: 1.875rem; //3xl
+  }
+
+  @media (min-width: 1536pxpx) {
+    font-size: 4.5rem; //7xl
   }
 }
 
@@ -15,8 +19,12 @@ h2 {
   font-weight: bold;
   font-size: 1.5rem; //2xl
 
-  @media (min-width: 1024px) {
+  @media (min-width: 768px) {
     font-size: 3.75rem; //6xl
+  }
+
+  @media (min-width: 1536px) {
+    font-size: 6rem; //8xl
   }
 }
 
@@ -27,7 +35,7 @@ h2 {
 
 .slideIn-enter-from,
 .slideIn-leave-to {
-  opacity: 50%;
+  opacity: 0%;
   transform: translateY(-100%);
 }
 
@@ -44,8 +52,16 @@ h2 {
 p {
   font-size: 0.75rem; //sm
 
+  @media (min-width: 768px) {
+    font-size: 1.25rem; //base
+  }
+
   @media (min-width: 1024px) {
     font-size: 1rem; //base
+  }
+
+  @media (min-width: 1536px) {
+    font-size: 1.5rem; //2xl
   }
 }
 
