@@ -123,7 +123,4 @@ watch(() => route.name, () => {
 </template>
 
 <style scoped>
-li p {
- font-size: 1.5rem;
-}
 </style>
