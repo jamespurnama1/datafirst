@@ -52,10 +52,6 @@ h2 {
 p {
   font-size: 0.75rem; //sm
 
-  @media (min-width: 768px) {
-    font-size: 1.25rem; //base
-  }
-
   @media (min-width: 1024px) {
     font-size: 1rem; //base
   }

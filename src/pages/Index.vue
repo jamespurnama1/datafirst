@@ -128,7 +128,7 @@ const clients = [
       </div>
     </section>
     <section>
-      <h2 class="split font-bold text-center lg:text-left leading-tight"><span>Data </span><span class="text-teal-900">First,</span><br><span>Innovation</span><span> Follows.</span></h2>
+      <h2 class="split font-bold text-center lg:text-left leading-tight"><span>Data </span><span class="text-teal-900">first,</span><br><span>innovation</span><span>&nbsp;follows.</span></h2>
       <div class="appear bg-white shadow-lg rounded-3xl mb-5 lg:my-12 lg:h-[512px] flex overflow-hidden flex-col-reverse"
       :class="[index === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row']" v-for="(solution, index) in solutions">
       <div v-if="width > 1024" class="relative lg:h-full h-1/3 lg:w-1/3 w-full basis-1/3 flex-grow-0 flex-shrink-0">

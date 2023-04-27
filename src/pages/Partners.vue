@@ -54,5 +54,6 @@ onBeforeUnmount(() => {
     </div>
   </main>
 </template>
+
 <style scoped lang="scss">
 </style>
