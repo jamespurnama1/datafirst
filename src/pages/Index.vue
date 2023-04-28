@@ -3,6 +3,11 @@ import { gsap, ScrollTrigger } from "@/gsap";
 import { onMounted, onBeforeUnmount } from 'vue';
 import Blog from '@/components/Blog.vue';
 import PartnersSection from '@/components/PartnersSection.vue';
+import { Swiper, SwiperSlide } from "swiper/vue";
+import { Autoplay } from "swiper"
+import 'swiper/css';
+
+const modules = [Autoplay];
 
 defineProps<{
   width: number
@@ -117,8 +122,8 @@ const clients = [
         </div>
       </div>
     </section>
-    <section class="grid grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-12 mx-24 min-h-[90vh]">
-      <div class="appear relative bg-white rounded-3xl min-h-[240px] lg:min-h-[480px] shadow-lg overflow-hidden" v-for="(desc, title, index) in types" >
+    <section class="!m-0 md:!m-8 md:grid md:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-12 mx-24 min-h-[90vh]">
+      <div v-if="width > 768" class="appear relative bg-white rounded-3xl min-h-[240px] lg:min-h-[480px] shadow-lg overflow-hidden" v-for="(desc, title, index) in types" >
         <div class="p-3 md:p-5 flex flex-col justify-end h-full relative z-20">
           <h3 class="text-sm md:text-lg 2xl:text-xl break-words leading-tight" v-html="title"></h3>
           <p class="text-xs md:text-sm 2xl:text-lg">{{ desc }}</p>
@@ -126,13 +131,25 @@ const clients = [
         <div class="absolute top-0 w-full h-full bg-gradient-to-t to-transparent from-white from-30% lg:from-20% lg:to-50% to-70% z-10" />
         <img class="absolute h-3/4 lg:h-full w-full top-0 object-cover" :src="`/types/${index+1}.jpg`" :alt="title" rel="preload">
       </div>
+      <swiper v-else :modules="modules" :space-between="50" :slides-per-view="1" :autoplay="{ delay: 5000 }" class="appear !p-8">
+        <swiperSlide v-for="(desc, title, index) in types" class="shadow-lg bg-white rounded-3xl overflow-hidden">
+          <div class="relative flex flex-col justify-end  min-h-[240px]" >
+            <div class="p-3 md:p-5 h-full relative z-20">
+              <h3 class="text-sm md:text-lg 2xl:text-xl break-words leading-tight" v-html="title"></h3>
+              <p class="text-xs md:text-sm 2xl:text-lg">{{ desc }}</p>
+            </div>
+            <div class="absolute top-0 w-full h-full bg-gradient-to-t to-transparent from-white from-30% lg:from-20% lg:to-50% to-70% z-10" />
+            <img class="absolute h-3/4 lg:h-full w-full top-0 object-cover" :src="`/types/${index + 1}.jpg`" :alt="title" rel="preload">
+          </div>
+        </swiperSlide>
+      </swiper>
     </section>
     <section>
       <h2 class="split font-bold text-center lg:text-left leading-tight"><span>Data </span><span class="text-teal-900">first,</span><br><span>innovation</span><span>&nbsp;follows.</span></h2>
       <div class="appear bg-white shadow-lg rounded-3xl mb-5 lg:my-12 lg:h-[512px] flex overflow-hidden flex-col-reverse"
       :class="[index === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row']" v-for="(solution, index) in solutions">
       <div v-if="width > 1024" class="relative lg:h-full h-1/3 lg:w-1/3 w-full basis-1/3 flex-grow-0 flex-shrink-0">
-        <div class="absolute top-0 from-transparent from-50% to-white h-full w-[101%] z-20" :class="[index === 1 ? 'bg-gradient-to-l -left-[1%]' : 'bg-gradient-to-r left-0']" />
+        <div class="absolute top-0 from-transparent from-50% to-white w-[101%] z-20" :class="[index === 1 ? 'bg-gradient-to-l -left-[1%]' : 'bg-gradient-to-r left-0']" />
         <img class="object-cover w-full h-full" :src="`/solutions/${solution.image}`" :alt="solution.imageAlt"/>
       </div>
         <div class="py-6 lg:py-12 px-10 relative z-30 flex flex-col justify-center gap-4 w-full lg:w-auto lg:max-w-[75%]"
@@ -143,7 +160,7 @@ const clients = [
           :class="[index >= 1 ? 'mr-auto' : 'ml-auto']">{{ solution.CTA }}</button>
         </div>
         <div v-if="solution.dashboard" class="lg:my-auto m-5 lg:mx-10 rounded-xl lg:rounded-3xl shadow-lg overflow-hidden flex-shrink-0 lg:h-3/5">
-          <img class="object-contain h-full w-auto" :src="`/solutions/${solution.dashboard}`" :alt="solution.dashboardAlt"/>
+          <img class="object-contain h-auto w-auto" :src="`/solutions/${solution.dashboard}`" :alt="solution.dashboardAlt"/>
         </div>
       </div>
     </section>
@@ -156,7 +173,7 @@ const clients = [
     </section>
     <PartnersSection />
     <Blog :width="width" />
-    <section class="h-[33vh] md:h-[50vh] lg:h-[75vh]">
+    <section class="!min-h-[400px] h-[33vh] md:h-[50vh] lg:h-[75vh]">
       <div class="appear bg-gray rounded-t-3xl py-12 lg:px-32 px-12 h-full flex flex-col lg:flex-row justify-center items-center w-full">
         <h2 class="split leading-none text-center lg:text-left"><span>Tomorrow's</span><span> Growth,</span><br><span>Starts </span><span class="text-teal-900">Today.</span></h2>
         <button class="bg-teal-900 hover:scale-110 rounded-3xl lg:my-2 my-5 py-3 2xl:py-5 2xl:px-12 px-5 text-white font-bold lg:ml-auto transition-all duration-300 text-sm md:text-lg 2xl:text-2xl hover:shadow-[0_0_50px_0_rgba(0,0,0,0.3)] hover:shadow-teal-900/80"><router-link to="/contact">Schedule a Demo</router-link></button>

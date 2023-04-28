@@ -113,10 +113,10 @@ watch(() => route.name, () => {
   </router-view>
   
   <footer class="absolute lg:bottom-6 md:bottom-7 bottom-3 flex md:flex-row flex-col items-center justify-center px-6 md:px-10 lg:px-36 md:justify-between text-center  w-full" :class="[darkMode ? 'text-white' : 'text-black']">
-    <p class="text-xs 2xl:text-base">Copyright © 2023 Datafirst - All Rights Reserved.</p>
+    <p class="text-[0.5rem] 2xl:text-base">Copyright © 2023 Datafirst - All Rights Reserved.</p>
     <span class="flex">
-      <p class="text-xs 2xl:text-base"><router-link to="/privacy">Privacy Policy</router-link></p>
-      <p class="text-xs 2xl:text-base"><router-link class="ml-3" to="/terms">Terms &amp; Condition</router-link></p>
+      <p class="text-[0.5rem] 2xl:text-base"><router-link to="/privacy">Privacy Policy</router-link></p>
+      <p class="text-[0.5rem] 2xl:text-base"><router-link class="ml-3" to="/terms">Terms &amp; Condition</router-link></p>
     </span>
   </footer>
   <!-- </client-only> -->

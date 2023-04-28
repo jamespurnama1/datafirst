@@ -46,11 +46,11 @@ onBeforeUnmount(() => {
       <button class="bg-teal-900 hover:scale-110 transition-all rounded-3xl my-2 py-3 px-5 2xl:py-5 2xl:px-12 text-white font-bold lg:mx-0 mx-auto text-sm lg:text-lg 2xl:text-2xl hover:shadow-[0_0_50px_0_rgba(0,0,0,0.3)] hover:shadow-teal-900/80 cursor-pointer"><router-link to="/">Become a customer</router-link></button>
     </div>
     <PartnersSection />
-    <h2 class="text-center mt-24">Backed by</h2>
-    <div class="flex justify-between px-24 mt-5 mb-36">
-      <img class="w-16 md:w-24 lg:w-36 2xl:w-44 object-contain" src="/logo/backed/SME.png" alt="Dubai SME" />
-      <img class="w-16 md:w-24 lg:w-36 2xl:w-44 object-contain" src="/logo/backed/sheraa.png" alt="Sheraa" />
-      <img class="w-16 md:w-24 lg:w-36 2xl:w-44 object-contain" src="/logo/backed/khalifa.png" alt="Khalifa Fund for Enterprise Development" />
+    <h2 class="text-center md:text-3xl mt-24">Backed by</h2>
+    <div class="flex justify-between md:px-24 mt-5 mb-24 md:mb-36">
+      <img class="w-16 md:w-20 lg:w-36 2xl:w-44 object-contain" src="/logo/backed/SME.png" alt="Dubai SME" />
+      <img class="w-16 md:w-20 lg:w-36 2xl:w-44 object-contain" src="/logo/backed/sheraa.png" alt="Sheraa" />
+      <img class="w-16 md:w-20 lg:w-36 2xl:w-44 object-contain" src="/logo/backed/khalifa.png" alt="Khalifa Fund for Enterprise Development" />
     </div>
   </main>
 </template>
