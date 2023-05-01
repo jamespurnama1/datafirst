@@ -114,31 +114,27 @@ onBeforeUnmount(() => {
 
     <section class="appear">
       <h2 class="split font-bold text-center leading-tight"><span>The </span><span class="text-orange">Obstacles </span><span>in </span><span>F&amp;B&nbsp;</span><span>Industry </span></h2>
-      <div class="flex relative flex-col gap-10 mt-5 shadow-lg rounded-3xl overflow-hidden px-6 py-12 h-[500px] items-center justify-center font-semibold">
-        <div class="flex justify-center items-center gap-10 flex-col md:flex-row">
-        <div class="flex items-center justify-start gap-3 w-full md:w-1/4">
+      <div class="flex relative gap-10 mt-5 shadow-lg rounded-3xl overflow-hidden px-6 py-12 h-[500px] items-center justify-center font-semibold flex-wrap">
+        <div class="flex items-center justify-start gap-3 flex-grow-0 flex-shrink-0 basis-full md:basis-1/3 lg:basis-[17%] xl:basis-1/4">
           <img class="h-8 md:h-10 lg:h-12 object-contain" src="/solutions/FLOW/Connect.png" alt="Analytics">
           <p class="text-xs md:text-base lg:text-xl">Data resides in too many different&nbsp;systems</p>
         </div>
-        <div class="flex items-center justify-start gap-3 w-full md:w-1/4">
+        <div class="flex items-center justify-start gap-3 flex-grow-0 flex-shrink-0 basis-full md:basis-1/3 lg:basis-1/4">
           <img class="h-8 md:h-10 lg:h-12 mb-5 object-contain" src="/solutions/FLOW/Graph.png" alt="Recruitment">
-          <p class="text-xs md:text-base lg:text-xl">F&amp;B is dynamic, require daily reporting for the outlet to be competitive in the market.</p>
+          <p class="text-xs md:text-base lg:text-xl">F&amp;B is dynamic, require daily reporting for the outlet to be competitive in the&nbsp;market.</p>
         </div>
-        <div class="flex items-center justify-start gap-3 w-full md:w-1/4">
+        <div class="flex items-center justify-start gap-3 flex-grow-0 flex-shrink-0 basis-full md:basis-1/3 lg:basis-[18%]">
           <img class="h-8 md:h-10 lg:h-12 object-contain" src="/solutions/FLOW/Whiteboard.png" alt="Manual Analysis">
           <p class="text-xs md:text-base lg:text-xl">Manual analysis is often inaccurate &amp;&nbsp;obsolete</p>
         </div>
-        </div>
-        <div class="flex justify-center items-center gap-10 flex-col md:flex-row">
-        <div class="flex items-center justify-start gap-3 w-full md:w-1/3 lg:w-1/4">
+        <div class="flex items-center justify-start gap-3 flex-grow-0 flex-shrink-0 basis-full md:basis-[33%]">
             <img class="h-8 md:h-10 lg:h-12 object-contain" src="/solutions/FLOW/FileWarning.png" alt="Report Warning">
             <p class="text-xs md:text-base lg:text-xl">F&amp;B leaders are spending time preparing reports than creating operational&nbsp;excellence.</p>
           </div>
-          <div class="flex items-center justify-start gap-3 w-full md:w-1/3 lg:w-1/4">
+          <div class="flex items-center justify-start gap-3 flex-grow-0 flex-shrink-0 basis-full md:basis-1/5 xl:basis-1/4">
             <img class="h-8 md:h-10 lg:h-12 object-contain" src="/solutions/analytics/Magnifying.png" alt="Grow">
             <p class="text-xs md:text-base lg:text-xl">Lack of actionable&nbsp;insights.</p>
           </div>
-        </div>
         <div class="absolute bg-white opacity-80 top-0 left-0 w-full h-full -z-10" />
         <img class="absolute top-0 left-0 w-full h-full object-cover saturate-0 -z-20" src="/solutions/FLOW/Obstacles.jpeg" alt="" />
       </div>
@@ -155,7 +151,7 @@ onBeforeUnmount(() => {
         </ul>
         <div class="selector absolute top-0 left-0 h-1 w-[1px] transition-transform origin-left z-10" />
         <transition name="fade" mode="out-in">
-          <div class="flex flex-col-reverse lg:flex-row items-center justify-end pt-10 px-3 gap-5" v-if="state === 'dashboard'">
+          <div class="flex flex-col-reverse lg:flex-row items-center justify-center pt-10 px-3 gap-5" v-if="state === 'dashboard'">
             <p class="text-black mb-2">A powerful dashboard that displays beyond surface-level data. Going in-depth to analyze user behaviors, attributes, channels and more, offering visibility into your customer journeys and extensive knowledge on their&nbsp;preferences.</p>
             <div class="flex items-center justify-center gap-5 w-full lg:w-1/2">
               <img src="@/assets/arrowMin.svg" class="rotate-180 swiper-button-prev-1 cursor-pointer" />
@@ -172,7 +168,7 @@ onBeforeUnmount(() => {
             </div>
           </div>
 
-          <div class="flex flex-col-reverse lg:flex-row items-center justify-end pt-10 px-3 gap-5" v-else-if="state === 'ML'">
+          <div class="flex flex-col-reverse lg:flex-row items-center justify-center pt-10 px-3 gap-5" v-else-if="state === 'ML'">
               <p class="text-black mb-2" v-html="ML[activeIndex]" />
               <div class="flex items-center justify-center gap-5 w-full lg:w-1/2">
                 <img src="@/assets/arrowMin.svg" class="rotate-180 swiper-button-prev-1 cursor-pointer" />
@@ -189,7 +185,7 @@ onBeforeUnmount(() => {
               </div>
             </div>
             
-          <div class="flex flex-col-reverse lg:flex-row items-center justify-end pt-10 px-3 gap-5" v-else-if="state === 'data'">
+          <div class="flex flex-col-reverse lg:flex-row items-center justify-center pt-10 px-3 gap-5" v-else-if="state === 'data'">
             <p class="text-black mb-2">There are two key elements in ensuring company growth: people and time. We’ll help you free both, by automating data extraction and update, data visualization, report generation, and sending the report at a programmed&nbsp;schedule.</p>
               <div class="lg:my-auto md:m-5 lg:mx-10 rounded-xl lg:rounded-3xl shadow-lg overflow-y-hidden flex items-center justify-center flex-shrink-0 lg:h-3/5 lg:w-1/2">
                 <img class="object-fill h-full w-auto" :src="`/solutions/FLOW/${solution[2]}`" alt="Machine Learning" />
@@ -197,7 +193,7 @@ onBeforeUnmount(() => {
               </div>
           </div>
 
-          <div class="flex flex-col-reverse lg:flex-row items-center justify-end pt-10 px-3 gap-5" v-else-if="state === 'decision'">
+          <div class="flex flex-col-reverse lg:flex-row items-center justify-center pt-10 px-3 gap-5" v-else-if="state === 'decision'">
             <p class="text-black mb-2">There are two key elements in ensuring company growth: people and time. We’ll help you free both, by automating data extraction and update, data visualization, report generation, and sending the report at a programmed&nbsp;schedule.</p>
               <div class="lg:my-auto md:m-5 lg:mx-10 rounded-xl lg:rounded-3xl shadow-lg overflow-y-hidden flex items-center justify-center flex-shrink-0 lg:h-3/5 lg:w-1/2">
                 <img class="object-fill h-full w-auto" :src="`/solutions/FLOW/${solution[3]}`" alt="Machine Learning" />
@@ -240,7 +236,7 @@ onBeforeUnmount(() => {
         <div class="appear bg-gray rounded-t-3xl py-12 h-full flex flex-col justify-center items-center w-full">
           <h2 class="split flex items-end font-bold text-center leading-tight"><span >Go </span><span class="mx-2 lg:mx-5">with </span><span>the </span><span><img class="w-16 md:w-52 mt-auto mb-2 lg:mb-5 mx-2 lg:mx-5" src="/solutions/FLOW/Logo.svg" alt="FLOW Logo" /></span></h2>
           <p class="">FLOW - F&amp;B Analytics Solutions allow you to</p>
-          <div class="bg-white my-2 md:my-5 py-10 px-12 w-full rounded-3xl shadow-lg flex flex-col gap-10 lg:gap-5">
+          <div class="bg-white mb-2 mt-10 md:mb-5 lg:m-20 py-10 px-12 w-full rounded-3xl shadow-lg flex flex-col gap-10 lg:gap-5">
             <div class="flex flex-col lg:flex-row justify-between mt-5">
               <div class="flex gap-5 items-center justify-start lg:w-1/4 w-full">
                 <img class="h-8 md:h-12 lg:h-20 mb-5 object-contain" src="/solutions/recruitment/Coin.png" alt="Analytics">

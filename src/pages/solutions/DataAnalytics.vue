@@ -114,7 +114,7 @@ onBeforeUnmount(() => {
         </ul>
         <div class="selector absolute top-0 left-0 h-1 w-[1px] transition-transform origin-left z-10" />
         <transition name="fade" mode="out-in">
-          <div class="flex flex-col-reverse lg:flex-row items-center justify-end pt-10 px-3 gap-5" v-if="state === 'dashboard'">
+          <div class="flex flex-col-reverse lg:flex-row items-center justify-center pt-10 px-3 gap-5" v-if="state === 'dashboard'">
             <p class="text-black mb-2">A powerful dashboard that displays beyond surface-level data. Going in-depth to analyze user behaviors, attributes, channels and more, offering visibility into your customer journeys and extensive knowledge on their&nbsp;preferences.</p>
             <div class="flex justify-center items-center gap-5 w-full lg:w-1/2">
               <img src="@/assets/arrowMin.svg" class="rotate-180 swiper-button-prev-1 cursor-pointer" />
@@ -130,14 +130,14 @@ onBeforeUnmount(() => {
               <img class="absolute md:scale-75 cursor-none -z-10" src="@/assets/circles.png" alt="" />
             </div>
           </div>
-          <div class="flex flex-col-reverse lg:flex-row items-center justify-end pt-10 px-3 gap-5" v-else-if="state === 'ML'">
+          <div class="flex flex-col-reverse lg:flex-row items-center justify-center pt-10 px-3 gap-5" v-else-if="state === 'ML'">
             <p class="text-black mb-2">There are two key elements in ensuring company growth: people and time. We’ll help you free both, by automating data extraction and update, data visualization, report generation, and sending the report at a programmed&nbsp;schedule.</p>
               <div class="lg:my-auto md:m-5 lg:mx-10 rounded-xl lg:rounded-3xl shadow-lg overflow-y-hidden flex justify-center items-center flex-shrink-0 lg:h-3/5 lg:w-1/2">
                 <img class="object-fill h-full w-auto" :src="`/solutions/analytics/${solution[1]}`" alt="Machine Learning" />
                 <img class="absolute md:scale-75 cursor-none -z-10" src="@/assets/circles.png" alt="" />
               </div>
           </div>
-            <div class="flex flex-col-reverse lg:flex-row items-center justify-end pt-10 px-3 gap-5" v-else-if="state === 'data'">
+            <div class="flex flex-col-reverse lg:flex-row items-center justify-center pt-10 px-3 gap-5" v-else-if="state === 'data'">
               <p class="text-black mb-2">Centralizing data from multiple establishments and systems to help your company gain better insight from multiple data streams and create actionable&nbsp;plans.</p>
               <div class="flex items-center justify-center gap-5 w-full lg:w-1/2">
               <img src="@/assets/arrowMin.svg" class="rotate-180 swiper-button-prev-2 cursor-pointer" />
