@@ -2,11 +2,14 @@
 import { gsap } from "@/gsap";
 import { ref, onMounted, onUnmounted, watch } from 'vue';
 import { RouterLink, RouterView, useRoute } from 'vue-router';
+import useDetectOutsideClick from '@/useDetectOutsideClick'
 
 const width = ref(0);
 const opened = ref(false);
 const darkMode = ref(false);
 const solutions = ref(false);
+const solutionsEl = ref(null);
+const solutionsSelector = ref(null);
 
 function resize() {
   width.value = window.innerWidth
@@ -21,10 +24,6 @@ onUnmounted(() => {
 })
 
 const route = useRoute();
-
-function openSolutions(e: Event) {
-  solutions.value = !solutions.value
-}
 
 function checkRoute() {
   if (route.name === 'About' || route.name === 'Contact' || route.name === 'Careers') {
@@ -50,6 +49,15 @@ function light() {
   })
 }
 
+useDetectOutsideClick(solutionsEl, (e: MouseEvent) => {
+  if (solutions.value) {
+    e.preventDefault()
+    solutions.value = false
+  } else if (e.target && (e.target as HTMLElement).classList.contains('solutionsSelector')) {
+    solutions.value = true
+  }
+})
+
 watch(() => route.name, () => {
   checkRoute();
   opened.value = false;
@@ -72,18 +80,13 @@ watch(() => route.name, () => {
       </div>
     </div>
     <Transition name="slideIn">
-    <ul v-show="width > 1024 || (opened && width <= 1024)" class="flex lg:flex-row flex-col lg:bg-transparent lg:m-0 ml-auto m-auto text-center transition-opacity absolute lg:relative lg:h-auto h-screen lg:w-auto w-screen lg:justify-normal justify-center z-30 lg:left-auto left-0" :class="[darkMode ? 'bg-black text-white' : 'bg-white text-black']">
+    <ul v-show="width > 1024 || (opened && width <= 1024)" class="flex lg:flex-row flex-col lg:bg-transparent lg:m-0 ml-auto m-auto text-center transition-opacity absolute lg:relative lg:h-auto h-screen lg:w-auto w-screen lg:justify-normal justify-center lg:left-auto left-0" :class="[darkMode ? 'bg-black text-white' : 'bg-white text-black']">
       <li v-if="width <= 1024" class="py-2 lg:py-0 px-6 hover:text-teal-900" :class="[solutions ? '-translate-y-[200%] lg:translate-y-0' :'']"><router-link to="/" @click="opened = false"><p>Home</p></router-link></li>
       <li class="cursor-pointer py-2 lg:py-0 px-6 hover:text-teal-900" :class="[solutions ? '-translate-y-[200%] lg:translate-y-0' :'']"><router-link to="/about" @click="opened = false"><p>About Us</p></router-link></li>
-      <li class="flex flex-col items-center cursor-pointer py-2 lg:py-0 px-6 hover:text-teal-900 relative z-10" @click="e => openSolutions(e)" :class="[solutions ? 'text-teal-900' : '', darkMode ? 'bg-black' : 'bg-white', solutions ? '-translate-y-[200%] lg:translate-y-0' : '']">
-        <p>Solutions</p>
+      <li class="flex flex-col items-center cursor-pointer py-2 lg:py-0 px-6 hover:text-teal-900 relative" :class="[solutions ? 'text-teal-900' : '', darkMode ? 'bg-black' : 'bg-white', solutions ? '-translate-y-[200%] lg:translate-y-0' : '']">
+        <p class="solutionsSelector">Solutions</p>
         <Transition :name="width > 1024 ? 'slideIn' : 'fade'">
-          <ul class="absolute flex flex-col top-[110%] lg:mt-8 lg:mb-0 mt-2 mb-10 rounded-3xl shadow-lg -z-10 w-[150%]" :class="[darkMode ? 'bg-darkGray' : 'bg-gray']" v-if="solutions"
-            v-closable="{
-              exclude: ['button'],
-              handler: 'onClose'
-            }"
-            >
+          <ul ref="solutionsEl" class="absolute flex flex-col top-[110%] lg:mt-8 lg:mb-0 mt-2 mb-10 rounded-3xl shadow-lg -z-10 w-[150%]" :class="[darkMode ? 'bg-darkGray' : 'bg-gray']" v-if="solutions">
             <li class="cursor-pointer py-2 lg:py-4 px-6 hover:text-teal-900" :class="[darkMode ? 'text-white' : 'text-black']"><router-link to="/solutions/DataAnalytics" @click="opened = false"><p>Data Analytics</p></router-link></li>
             <li class="cursor-pointer py-2 lg:py-4 px-6 hover:text-teal-900" :class="[darkMode ? 'text-white' : 'text-black']"><router-link to="/solutions/Recruitment" @click="opened = false"><p>IT Recruitment &amp; Outsourcing</p></router-link></li>
             <li class="cursor-pointer py-2 lg:py-4 px-6 hover:text-teal-900" :class="[darkMode ? 'text-white' : 'text-black']"><router-link to="/solutions/FLOW" @click="opened = false"><p>FLOW</p></router-link></li>

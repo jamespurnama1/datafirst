@@ -18,8 +18,7 @@
       </ul>
       <div class="selector absolute left-0 h-1 w-[1px] transition-transform origin-left" />
       <SearchInput
-        @input="getKeys(data, searchVal)"
-        v-model="searchVal"
+        @input="(e: any) => {searchVal = e.target!.value; getKeys(data, searchVal)}"
         placeholder="Search"
         class="search-input-wrapper"
         :search-icon="false"

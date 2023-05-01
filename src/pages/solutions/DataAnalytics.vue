@@ -97,7 +97,7 @@ onBeforeUnmount(() => {
         <h1 class="split font-bold text-4xl lg:text-8xl my-2 text-center lg:text-left"><span>Unlock
           </span><span>the </span><span class="text-teal-900">power </span><span class="text-teal-900">of </span><span class="text-teal-900">data </span><span>with </span><span>the </span><span>right </span><span>analytics</span><span>&nbsp;solution. </span></h1>
         <p class="my-2 lg:text-xl text-center lg:text-left">Be the first one to understand your customers. Equip your team with the insight they need to create actionable plans and make fast &amp; accurate data-driven decisions through our analytics&nbsp;tool.</p>
-        <button class="bg-teal-900 hover:bg-teal-500 hover:scale-110 transition-all rounded-3xl my-2 py-3 px-5 2xl:py-5 2xl:px-12 text-white hover:text-teal-900 font-bold lg:ml-0 mx-auto text-sm md:text-lg 2xl:text-2xl"><router-link to="/contact">Schedule a Demo</router-link></button>
+        <button class="bg-teal-900 hover:scale-110 hover:shadow-[0_0_50px_0_rgba(0,0,0,0.3)] hover:shadow-teal-900/80 transition-all rounded-3xl my-2 py-3 px-5 2xl:py-5 2xl:px-12 text-white font-bold lg:ml-0 mx-auto text-sm md:text-lg 2xl:text-2xl"><router-link to="/contact">Schedule a Demo</router-link></button>
       </div>
       <div v-if="width > 1024" class="absolute bottom-0 lg:left-0 -z-10 w-[51%] h-full bg-gradient-to-r to-90% from-transparent to-white" />
       <img class="absolute bottom-0 lg:left-0 -z-20 object-cover w-full lg:w-1/2 h-full lg:brightness-100 brightness-50" src="/solutions/analytics/Hero.jpeg"/>
