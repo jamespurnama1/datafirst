@@ -28,7 +28,7 @@ function openSolutions(e: Event) {
 }
 
 function checkRoute() {
-  if (route.path === '/about' || route.path === '/contact') {
+  if (route.path === '/about' || route.path === '/contact' || route.path === '/careers') {
     dark()
   } else {
     light()
@@ -74,25 +74,27 @@ watch(() => route.name, () => {
     </div>
     <Transition name="slideIn">
     <ul v-show="width > 1024 || (opened && width <= 1024)" class="flex lg:flex-row flex-col lg:bg-transparent lg:m-0 ml-auto m-auto text-center transition-opacity absolute lg:relative lg:h-auto h-screen lg:w-auto w-screen lg:justify-normal justify-center z-30 lg:left-auto left-0" :class="[darkMode ? 'bg-black text-white' : 'bg-white text-black']">
-      <li v-if="width <= 1024" class="py-2 lg:py-0 px-6 hover:text-teal-900" :class="[solutions ? '-translate-y-[200%] lg:translate-y-0' :'']"><router-link to="/"><p>Home</p></router-link></li>
-      <li class="cursor-pointer py-2 lg:py-0 px-6 hover:text-teal-900" :class="[solutions ? '-translate-y-[200%] lg:translate-y-0' :'']"><router-link to="/about"><p>About Us</p></router-link></li>
+      <li v-if="width <= 1024" class="py-2 lg:py-0 px-6 hover:text-teal-900" :class="[solutions ? '-translate-y-[200%] lg:translate-y-0' :'']"><router-link to="/" @click="opened = false"><p>Home</p></router-link></li>
+      <li class="cursor-pointer py-2 lg:py-0 px-6 hover:text-teal-900" :class="[solutions ? '-translate-y-[200%] lg:translate-y-0' :'']"><router-link to="/about" @click="opened = false"><p>About Us</p></router-link></li>
       <li class="flex flex-col items-center cursor-pointer py-2 lg:py-0 px-6 hover:text-teal-900 relative z-10" @click="e => openSolutions(e)" :class="[solutions ? 'text-teal-900' : '', darkMode ? 'bg-black' : 'bg-white', solutions ? '-translate-y-[200%] lg:translate-y-0' : '']">
         <p>Solutions</p>
         <Transition :name="width > 1024 ? 'slideIn' : 'fade'">
-          <ul class="absolute flex flex-col top-[110%] lg:mt-8 lg:mb-0 mt-2 mb-10 rounded-3xl shadow-lg -z-10 w-[150%]" :class="[darkMode ? 'bg-darkGray' : 'bg-gray']" v-if="solutions" v-closable="{
+          <ul class="absolute flex flex-col top-[110%] lg:mt-8 lg:mb-0 mt-2 mb-10 rounded-3xl shadow-lg -z-10 w-[150%]" :class="[darkMode ? 'bg-darkGray' : 'bg-gray']" v-if="solutions"
+            v-closable="{
               exclude: ['button'],
               handler: 'onClose'
-            }">
-            <li class="cursor-pointer py-2 lg:py-4 px-6 hover:text-teal-900" :class="[darkMode ? 'text-white' : 'text-black']"><router-link to="/solutions/DataAnalytics"><p>Data Analytics</p></router-link></li>
-            <li class="cursor-pointer py-2 lg:py-4 px-6 hover:text-teal-900" :class="[darkMode ? 'text-white' : 'text-black']"><router-link to="/solutions/Recruitment"><p>IT Recruitment &amp; Outsourcing</p></router-link></li>
-            <li class="cursor-pointer py-2 lg:py-4 px-6 hover:text-teal-900" :class="[darkMode ? 'text-white' : 'text-black']"><router-link to="/solutions/FLOW"><p>FLOW</p></router-link></li>
+            }"
+            >
+            <li class="cursor-pointer py-2 lg:py-4 px-6 hover:text-teal-900" :class="[darkMode ? 'text-white' : 'text-black']"><router-link to="/solutions/DataAnalytics" @click="opened = false"><p>Data Analytics</p></router-link></li>
+            <li class="cursor-pointer py-2 lg:py-4 px-6 hover:text-teal-900" :class="[darkMode ? 'text-white' : 'text-black']"><router-link to="/solutions/Recruitment" @click="opened = false"><p>IT Recruitment &amp; Outsourcing</p></router-link></li>
+            <li class="cursor-pointer py-2 lg:py-4 px-6 hover:text-teal-900" :class="[darkMode ? 'text-white' : 'text-black']"><router-link to="/solutions/FLOW" @click="opened = false"><p>FLOW</p></router-link></li>
           </ul>
         </Transition>
       </li>
-      <li class="cursor-pointer py-2 lg:py-0 px-6 hover:text-teal-900 transition-transform" :class="[solutions ? 'translate-y-[200%] lg:translate-y-0' :'']"><router-link to="/partners"><p>Partners</p></router-link></li>
-      <li class="cursor-pointer py-2 lg:py-0 px-6 hover:text-teal-900 transition-transform" :class="[solutions ? 'translate-y-[200%] lg:translate-y-0' : '']"><router-link to="/contact"><p>Contact</p></router-link></li>
-      <li class="cursor-pointer py-2 lg:py-0 px-6 hover:text-teal-900 transition-transform" :class="[solutions ? 'translate-y-[200%] lg:translate-y-0' : '']"><router-link to="/contact"><p>Careers</p></router-link></li>
-      <li class="cursor-pointer py-2 lg:py-0 px-6 hover:text-teal-900 transition-transform" :class="[solutions ? 'translate-y-[200%] lg:translate-y-0' : '']"><router-link to="/blog"><p>Blog</p></router-link></li>
+      <li class="cursor-pointer py-2 lg:py-0 px-6 hover:text-teal-900 transition-transform" :class="[solutions ? 'translate-y-[200%] lg:translate-y-0' :'']"><router-link to="/partners" @click="opened = false"><p>Partners</p></router-link></li>
+      <li class="cursor-pointer py-2 lg:py-0 px-6 hover:text-teal-900 transition-transform" :class="[solutions ? 'translate-y-[200%] lg:translate-y-0' : '']"><router-link to="/contact" @click="opened = false"><p>Contact</p></router-link></li>
+      <li class="cursor-pointer py-2 lg:py-0 px-6 hover:text-teal-900 transition-transform" :class="[solutions ? 'translate-y-[200%] lg:translate-y-0' : '']"><router-link to="/careers" @click="opened = false"><p>Careers</p></router-link></li>
+      <li class="cursor-pointer py-2 lg:py-0 px-6 hover:text-teal-900 transition-transform" :class="[solutions ? 'translate-y-[200%] lg:translate-y-0' : '']"><router-link to="/blog" @click="opened = false"><p>Blog</p></router-link></li>
     </ul>
     </Transition>
   </nav>

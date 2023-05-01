@@ -20,13 +20,13 @@ const solution = [
     'dashboard3.jpeg',
     'dashboard4.jpeg',
   ],
-  'ML.png',
+  'ML.jpeg',
   [
-    'data1.png',
-    'data2.png',
-    'data3.png',
+    'data1.jpeg',
+    'data2.jpeg',
+    'data3.jpeg',
   ],
-  'decision.png'
+  'decision.jpeg'
 ]
 
 const state = ref('dashboard')
@@ -228,7 +228,7 @@ onBeforeUnmount(() => {
     </section>
     <section class="relative appear h-[300px] md:h-[700px] !mb-0 overflow-hidden">
       <div class="absolute top-0 left-0 bg-gradient-to-t from-transparent to-white from-50% to-95% w-full h-full"></div>
-      <img class="absolute bottom-0 left-0 -z-10 h-[99%] w-full object-cover" src="/solutions/analytics/End.png" alt=""/>
+      <img class="absolute bottom-0 left-0 -z-10 h-[99%] w-full object-cover" src="/solutions/analytics/End.jpeg" alt=""/>
     </section>
     <section class="!-mt-10 z-10 relative appear !min-h-0">
       <div class="bg-white rounded-3xl shadow-lg py-5 md:py-12 px-3 md:px-12">

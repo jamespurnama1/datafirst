@@ -117,7 +117,7 @@ onBeforeUnmount(() => {
         <button class="bg-teal-900 hover:bg-teal-500 hover:scale-110 transition-all rounded-3xl my-2 py-3 px-5 2xl:py-5 2xl:px-12 text-white hover:text-teal-900 font-bold lg:ml-0 mx-auto text-sm md:text-lg 2xl:text-2xl"><router-link to="/">Get Started</router-link></button>
       </div>
       <div v-if="width > 1024" class="absolute bottom-0 lg:left-0 -z-10 w-[51%] h-full bg-gradient-to-r to-90% from-transparent to-white" />
-      <img class="absolute bottom-0 lg:left-0 -z-20 object-cover w-full lg:w-1/2 h-full lg:brightness-100 brightness-50" src="/solutions/recruitment/Hero.png"/>
+      <img class="absolute bottom-0 lg:left-0 -z-20 object-cover w-full lg:w-1/2 h-full lg:brightness-100 brightness-50" src="/solutions/recruitment/Hero.jpeg"/>
     </section>
     <section class="appear bg-gray rounded-3xl overflow-hidden py-5 px-3 md:px-12 md:py-12 grid grid-cols-1 md:grid-cols-[1fr,2fr] items-center">
       <div class="relative flex items-center justify-center">
@@ -137,7 +137,7 @@ onBeforeUnmount(() => {
       <div class="appear flex flex-col md:flex-row gap-5 md:gap-10 lg:gap-20 select relative rounded-3xl shadow-lg bg-white py-5 lg:py-12 px-3 md:px-6 lg:px-12 w-full overflow-hidden">
           <ul class="items text-black flex flex-row md:flex-col gap-12 cursor-pointer justify-start md:w-1/3 lg:w-1/5 overflow-x-auto md:h-auto h-12">
             <li class="cost flex items-center gap-5 font-medium text-left text-sm md:text-lg mr-auto whitespace-nowrap md:whitespace-normal" @click="changeState('cost')"><img class="h-6 md:h-10" src="/solutions/recruitment/Coin.png" alt="" />Reduce operational cost</li>
-            <li class="efficiency flex items-center gap-5 font-medium text-left text-sm md:text-lg mr-auto whitespace-nowrap md:whitespace-normal" @click="changeState('efficiency')"><img class="h-6 md:h-10" src="/solutions/analytics/Performance.png" alt="" />Improve efficiency &amp; productivity</li>
+            <li class="efficiency flex items-center gap-5 font-medium text-left text-sm md:text-lg mr-auto whitespace-nowrap md:whitespace-normal" @click="changeState('efficiency')"><img class="h-6 md:h-10" src="/solutions/analytics/Performance.jpeg" alt="" />Improve efficiency &amp; productivity</li>
             <li class="skills flex items-center gap-5 font-medium text-left text-sm md:text-lg mr-auto whitespace-nowrap md:whitespace-normal" @click="changeState('skills')"><img class="h-6 md:h-10" src="/solutions/recruitment/Check.png" alt="" />Gain access to specialized skills</li>
           </ul>
           <div v-if="width > 1024" class="selector absolute top-0 left-0 h-1 w-[1px] transition-transform origin-left z-10" />
@@ -148,7 +148,7 @@ onBeforeUnmount(() => {
                 <div class="absolute -z-10 right-0 w-full md:w-2/5 md:h-full h-1/2 bottom-0 md:top-0">
                   <div class="absolute z-10 w-full h-full md:bg-gradient-to-l bg-gradient-to-t md:from-30% lg:from-40% md:to-80% lg:to-90% to-white from-transparent" />
                   <!-- <div class="absolute z-10 w-full h-full bg-gradient-to-t from-40% md:from-60% to-80% md:to-100% to-white from-transparent" /> -->
-                  <img class="absolute right-0 w-[99%] h-full object-cover" :src="`/solutions/recruitment/${items.img}.png`" />
+                  <img class="absolute right-0 w-[99%] h-full object-cover" :src="`/solutions/recruitment/${items.img}.jpeg`" />
                 </div>
               </div>
             </template>
