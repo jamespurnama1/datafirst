@@ -124,7 +124,6 @@ function changeState(value?: string) {
 const de = debounce(() => { changeState() }, 250)
 
 onMounted(async () => {
-  console.log(SearchInput)
   getKeys(data, '')
   await new Promise(resolve => setTimeout(resolve, 1000));
   ScrollTrigger.batch(".appear", {

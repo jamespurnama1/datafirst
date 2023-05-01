@@ -17,8 +17,6 @@ function input(text:string) {
 }
 
 onMounted(async () => {
-  console.log(SearchInput)
-  // component.value!.getKeys('')
   await new Promise(resolve => setTimeout(resolve, 1000));
   ScrollTrigger.batch(".appear", {
     onEnter: (elements, triggers) => {

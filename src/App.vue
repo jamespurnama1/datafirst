@@ -27,7 +27,6 @@ function openSolutions(e: Event) {
 }
 
 function checkRoute() {
-  console.log(route.name)
   if (route.name === 'About' || route.name === 'Contact' || route.name === 'Careers') {
     dark()
   } else {

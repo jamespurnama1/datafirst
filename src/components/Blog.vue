@@ -5,7 +5,7 @@ import { useRoute } from 'vue-router'
 import { Autoplay } from "swiper"
 import 'swiper/css';
 
-defineProps<{
+const props = defineProps<{
   width: number
   limit: number
 }>()
@@ -54,7 +54,6 @@ const posts = [
   }
 ]
 const modules = [Autoplay];
-const limit = ref(null as null | number);
 const result = ref([] as never[] | data[])
 
 function getKeys(val: string) {
@@ -64,7 +63,7 @@ function getKeys(val: string) {
     result.value = posts.filter(o =>
     (Object.keys(o) as Array<keyof typeof o>).some(k => o[k].toLowerCase().includes(val.toLowerCase())));
   }
-  result.value.length = limit.value ? limit.value : result.value.length
+  result.value.length = props.limit ? props.limit : result.value.length
 }
 
 getKeys('')
