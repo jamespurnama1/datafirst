@@ -43,7 +43,7 @@ onBeforeUnmount(() => {
         <h1 class="split text-4xl lg:text-8xl 2xl:text-9xl font-bold lg:text-left text-center"><span>We </span><span>go </span><span>far </span><span>by </span><br><span>going</span>&nbsp;<span class="text-teal-900">together.</span></h1>
         <p class="mt-5 lg:mb-0 mb-5 lg:pr-52 mx-auto lg:mx-0">We work with some of industry leading tech companies to provide you with the state-of-the-art technologies that are essential to our services.</p>
       </div>
-      <button class="bg-teal-900 hover:scale-110 transition-all rounded-3xl my-2 py-3 px-5 2xl:py-5 2xl:px-12 text-white font-bold lg:mx-0 mx-auto text-sm lg:text-lg 2xl:text-2xl hover:shadow-[0_0_50px_0_rgba(0,0,0,0.3)] hover:shadow-teal-900/80 cursor-pointer"><router-link to="/">Become a customer</router-link></button>
+      <button class="bg-teal-900 hover:scale-110 transition-all rounded-3xl my-2 py-3 px-5 2xl:py-5 2xl:px-12 text-white font-bold lg:mx-0 mx-auto text-sm lg:text-lg 2xl:text-2xl hover:shadow-[0_0_50px_0_rgba(0,0,0,0.3)] hover:shadow-teal-900/80 cursor-pointer"><router-link to="/contact">Become a customer</router-link></button>
     </div>
     <PartnersSection />
     <h2 class="text-center md:text-3xl mt-24">Backed by</h2>

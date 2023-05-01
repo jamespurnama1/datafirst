@@ -74,15 +74,15 @@ onBeforeUnmount(() => {
         <transition name="fade" mode="out-in">
           <div class="flex flex-col items-center justify-end pt-10 px-0" v-if="state === 'sales'">
             <p class="text-black text-center mb-2">Learn more about our solutions and how it fits our needs.</p>
-            <button class="bg-teal-900 hover:scale-110 rounded-3xl lg:my-2 my-5 py-3 px-5 text-white font-bold transition-all duration-300 text-sm md:text-lg hover:shadow-[0_0_50px_0_rgba(0,0,0,0.3)] hover:shadow-teal-900/80"><router-link to="/contact">Contact Sales</router-link></button>
+            <button class="bg-teal-900 hover:scale-110 rounded-3xl lg:my-2 my-5 py-3 px-5 text-white font-bold transition-all duration-300 text-sm md:text-lg hover:shadow-[0_0_50px_0_rgba(0,0,0,0.3)] hover:shadow-teal-900/80"><a href="mailto:info@datafirstservices.com">Contact Sales</a></button>
           </div>
           <div class="flex flex-col items-center justify-end pt-10 px-3" v-else-if="state === 'support'">
             <p class="text-black text-center mb-2">Experiencing technical issues?<br>We're ready to help!</p>
-            <button class="bg-teal-900 hover:scale-110 rounded-3xl lg:my-2 my-5 py-3 px-5 text-white font-bold transition-all duration-300 text-sm md:text-lg hover:shadow-[0_0_50px_0_rgba(0,0,0,0.3)] hover:shadow-teal-900/80"><router-link to="/contact">Contact Support</router-link></button>
+            <button class="bg-teal-900 hover:scale-110 rounded-3xl lg:my-2 my-5 py-3 px-5 text-white font-bold transition-all duration-300 text-sm md:text-lg hover:shadow-[0_0_50px_0_rgba(0,0,0,0.3)] hover:shadow-teal-900/80"><a href="mailto:info@datafirstservices.com">Contact Support</a></button>
           </div>
           <div class="flex flex-col items-center justify-end pt-10 px-3" v-else-if="state === 'general'">
             <p class="text-black text-center mb-2">For everything else!</p>
-            <button class="bg-teal-900 hover:scale-110 rounded-3xl lg:my-2 my-5 py-3 px-5 text-white font-bold transition-all duration-300 text-sm md:text-lg hover:shadow-[0_0_50px_0_rgba(0,0,0,0.3)] hover:shadow-teal-900/80"><router-link to="/contact">Contact us</router-link></button>
+            <button class="bg-teal-900 hover:scale-110 rounded-3xl lg:my-2 my-5 py-3 px-5 text-white font-bold transition-all duration-300 text-sm md:text-lg hover:shadow-[0_0_50px_0_rgba(0,0,0,0.3)] hover:shadow-teal-900/80"><a href="mailto:info@datafirstservices.com">Contact us</a></button>
           </div>
         </transition>
       </div>

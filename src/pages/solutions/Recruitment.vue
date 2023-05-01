@@ -114,7 +114,7 @@ onBeforeUnmount(() => {
         <h1 class="split font-bold text-4xl lg:text-8xl my-2 text-center lg:text-left"><span>Build 
           </span><span>the </span><span>right </span><span>team, </span><span>from </span><span>the </span><span>right </span><span>place.</span></h1>
         <p class="my-2 lg:text-xl text-center lg:text-left">It’s the age old problem for all organizations: You have the right vision, but not the right people. Which is why Datafirst is dedicated to providing and sourcing top-notch IT talent to businesses of all sizes, from permanent to temporary role.</p>
-        <button class="bg-teal-900 hover:bg-teal-500 hover:scale-110 transition-all rounded-3xl my-2 py-3 px-5 2xl:py-5 2xl:px-12 text-white hover:text-teal-900 font-bold lg:ml-0 mx-auto text-sm md:text-lg 2xl:text-2xl"><router-link to="/">Get Started</router-link></button>
+        <button class="bg-teal-900 hover:bg-teal-500 hover:scale-110 transition-all rounded-3xl my-2 py-3 px-5 2xl:py-5 2xl:px-12 text-white hover:text-teal-900 font-bold lg:ml-0 mx-auto text-sm md:text-lg 2xl:text-2xl"><router-link to="/contact">Get Started</router-link></button>
       </div>
       <div v-if="width > 1024" class="absolute bottom-0 lg:left-0 -z-10 w-[51%] h-full bg-gradient-to-r to-90% from-transparent to-white" />
       <img class="absolute bottom-0 lg:left-0 -z-20 object-cover w-full lg:w-1/2 h-full lg:brightness-100 brightness-50" src="/solutions/recruitment/Hero.jpeg"/>
@@ -180,7 +180,7 @@ onBeforeUnmount(() => {
     <section class="appear relative text-center flex flex-col lg:gap-6 h-[920px] p-5 md:px-36 md:py-12 rounded-3xl shadow-lg overflow-hidden">
       <div class="flex justify-between mt-5 mb-10">
         <h2 class="leading-none text-left">Our staffing <span class="text-teal-900">solutions</span></h2>
-        <button class="bg-teal-900 transition-all hover:shadow-[0_0_50px_0_rgba(0,0,0,0.3)] hover:shadow-teal-900/80 duration-300 ring-teal-900 hover:ring-0 ring-1 rounded-3xl my-auto py-3 px-5 2xl:py-5 2xl:px-12 text-white font-bold text-sm md:text-lg 2xl:text-2xl">Schedule a Demo</button>
+        <button class="bg-teal-900 transition-all hover:shadow-[0_0_50px_0_rgba(0,0,0,0.3)] hover:shadow-teal-900/80 duration-300 ring-teal-900 hover:ring-0 ring-1 rounded-3xl my-auto py-3 px-5 2xl:py-5 2xl:px-12 text-white font-bold text-sm md:text-lg 2xl:text-2xl"><router-link to="/contact">Schedule a Demo</router-link></button>
       </div>
       <ul class="grid md:grid-cols-3 grid-cols-2 gap-12 text-left font-bold text-base md:text-lg">
         <li>IT Project Managers</li>

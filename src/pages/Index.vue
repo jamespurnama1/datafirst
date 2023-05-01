@@ -13,11 +13,8 @@ defineProps<{
   width: number
 }>()
 
-
-// gsap.registerPlugin(ScrollTrigger);
 onMounted(async() => {
   await new Promise(resolve => setTimeout(resolve, 1000));
-  // setTimeout(() => {
   ScrollTrigger.batch(".appear", {
     onEnter: (elements, triggers) => {
       gsap.to(elements, { opacity: 1, y: 0, stagger: 0.15 });
@@ -40,8 +37,6 @@ onMounted(async() => {
       start: "top 85%",
       onLeave: elements => gsap.set(elements, { opacity: 1, y: 0, overwrite: true }),
     })
-  // }, 1000)
-  // ScrollTrigger.refresh();
 })
 
 onBeforeUnmount(() => {
@@ -68,7 +63,8 @@ const solutions = [
     dashboard: "/DataAnalytics.jpeg",
     dashboardAlt: "",
     image: "/DataAnalyticsBG.jpg",
-    imageAlt: ""
+    imageAlt: "",
+    slug: "/solutions/DataAnalytics"
   },
   {
     title: "Flow F&B Analytics:<br>Drive Revenue, Save&nbsp;time.",
@@ -77,7 +73,8 @@ const solutions = [
     dashboard: "FLOW.jpeg",
     dashboardAlt: "",
     image: "FLOWBG.jpg",
-    imageAlt: ""
+    imageAlt: "",
+    slug: "/solutions/FLOW"
   },
   {
     title: "Build a super tech team, the right&nbsp;way.",
@@ -86,7 +83,8 @@ const solutions = [
     dashboard: "",
     dashboardAlt: "",
     image: "ITRecruitmentBG.jpg",
-    imageAlt: ""
+    imageAlt: "",
+    slug: "/solutions/Recruitment"
   }
 ]
 
@@ -107,7 +105,7 @@ const clients = [
       <div class="flex flex-col lg:mx-24 mx-auto my-36">
         <h1 class="split text-white font-bold text-4xl md:text-8xl 2xl:text-9xl my-2 text-center lg:text-left"><span>It </span><span>all </span><span>starts </span><br><span>with&nbsp;</span><span>data.</span></h1>
         <p class="my-2 text-white lg:text-2xl text-center lg:text-left">Growth starts here.<br>Unleash the power of data with the right resources and&nbsp;insights.</p>
-        <button class="bg-teal-900 hover:bg-teal-500 hover:scale-110 transition-all rounded-3xl my-2 py-3 px-5 2xl:py-5 2xl:px-12 text-white hover:text-teal-900 font-bold lg:ml-0 mx-auto text-sm md:text-lg 2xl:text-2xl"><router-link to="/">Find Out How</router-link></button>
+        <button class="bg-teal-900 hover:bg-teal-500 hover:scale-110 transition-all rounded-3xl my-2 py-3 px-5 2xl:py-5 2xl:px-12 text-white hover:text-teal-900 font-bold lg:ml-0 mx-auto text-sm md:text-lg 2xl:text-2xl"><router-link to="/solutions/DataAnalytics">Find Out How</router-link></button>
       </div>
     <video loop muted autoplay playsinline class="object-cover -z-10 absolute top-0 left-0 brightness-75 w-full h-full" src="/Hero.mp4"/>
     </section>
@@ -148,19 +146,19 @@ const clients = [
       <h2 class="split font-bold text-center lg:text-left leading-tight"><span>Data </span><span class="text-teal-900">first,</span><br><span>innovation</span><span>&nbsp;follows.</span></h2>
       <div class="appear bg-white shadow-lg rounded-3xl mb-5 lg:my-12 lg:h-[512px] flex overflow-hidden flex-col-reverse"
       :class="[index === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row']" v-for="(solution, index) in solutions">
-      <div v-if="width > 1024" class="relative lg:h-full h-1/3 lg:w-1/3 w-full basis-1/3 flex-grow-0 flex-shrink-0">
-        <div class="absolute top-0 from-transparent from-50% to-white w-[101%] z-20" :class="[index === 1 ? 'bg-gradient-to-l -left-[1%]' : 'bg-gradient-to-r left-0']" />
-        <img class="object-cover w-full h-full" :src="`/solutions/${solution.image}`" :alt="solution.imageAlt"/>
+      <div v-if="width > 1024" class="relative lg:h-full h-1/3 lg:w-1/3 w-[101%] basis-1/3 flex-grow-0 flex-shrink-0">
+        <div class="absolute top-0 from-transparent from-50% to-white h-full w-full z-20" :class="[index === 1 ? 'bg-gradient-to-l -left-[1%]' : 'bg-gradient-to-r left-0']" />
+        <img class="relative z-10 object-cover w-full h-full" :src="`/solutions/${solution.image}`" :alt="solution.imageAlt"/>
       </div>
         <div class="py-6 lg:py-12 px-10 relative z-30 flex flex-col justify-center gap-4 w-full lg:w-auto lg:max-w-[75%]"
         :class="[solution.dashboard ? 'to-30% lg:pl-24' : 'to-15% lg:pl-72', index >= 1 ? 'text-left items-start' : 'text-right items-end', index === 1 ? '-mr-52 bg-gradient-to-l !pl-10 !lg:pr-24' : 'lg:-ml-52 bg-gradient-to-r']">
           <h3 v-html="solution.title" />
           <p>{{ solution.desc }}</p>
           <button class="bg-white hover:bg-teal-900 transition-all hover:shadow-[0_0_50px_0_rgba(0,0,0,0.3)] hover:shadow-teal-900/80 duration-300 ring-teal-900 hover:ring-0 ring-1 rounded-3xl my-2 py-3 px-5 2xl:py-5 2xl:px-12 text-teal-900 hover:text-white font-bold text-sm md:text-lg 2xl:text-2xl"
-          :class="[index >= 1 ? 'mr-auto' : 'ml-auto']">{{ solution.CTA }}</button>
+          :class="[index >= 1 ? 'mr-auto' : 'ml-auto']"><router-link :to="solution.slug">{{ solution.CTA }}</router-link></button>
         </div>
         <div v-if="solution.dashboard" class="lg:my-auto m-5 lg:mx-10 rounded-xl lg:rounded-3xl shadow-lg overflow-hidden flex-shrink-0 lg:h-3/5">
-          <img class="object-contain h-auto w-auto" :src="`/solutions/${solution.dashboard}`" :alt="solution.dashboardAlt"/>
+          <img class="object-contain h-full w-full" :src="`/solutions/${solution.dashboard}`" :alt="solution.dashboardAlt"/>
         </div>
       </div>
     </section>
@@ -172,7 +170,7 @@ const clients = [
       </div>
     </section>
     <PartnersSection />
-    <Blog :width="width" />
+    <Blog :limit="3" :width="width" />
     <section class="!min-h-[400px] h-[33vh] md:h-[50vh] lg:h-[75vh]">
       <div class="appear bg-gray rounded-t-3xl py-12 lg:px-32 px-12 h-full flex flex-col lg:flex-row justify-center items-center w-full">
         <h2 class="split leading-none text-center lg:text-left"><span>Tomorrow's</span><span> Growth,</span><br><span>Starts </span><span class="text-teal-900">Today.</span></h2>
