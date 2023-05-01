@@ -12,7 +12,6 @@ function resize() {
   width.value = window.innerWidth
 }
 onMounted(() => {
-  checkRoute()
   resize()
   window.addEventListener('resize', resize)
 })
@@ -28,7 +27,8 @@ function openSolutions(e: Event) {
 }
 
 function checkRoute() {
-  if (route.path === '/about' || route.path === '/contact' || route.path === '/careers') {
+  console.log(route.name)
+  if (route.name === 'About' || route.name === 'Contact' || route.name === 'Careers') {
     dark()
   } else {
     light()
@@ -56,7 +56,7 @@ watch(() => route.name, () => {
   opened.value = false;
   solutions.value = false;
   window.scrollTo(0, 0);
-})
+}, { immediate: true })
 </script>
 
 <template>

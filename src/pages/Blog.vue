@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { gsap, ScrollTrigger } from "@/gsap";
-import * as SearchInput from 'vue-search-input/dist/vue-search-input.es'
+import SearchInput from 'vue-search-input'
 import { onMounted, onBeforeUnmount, ref, type DefineComponent } from 'vue';
 import Blog from '@/components/Blog.vue';
 
@@ -17,6 +17,7 @@ function input(text:string) {
 }
 
 onMounted(async () => {
+  console.log(SearchInput)
   // component.value!.getKeys('')
   await new Promise(resolve => setTimeout(resolve, 1000));
   ScrollTrigger.batch(".appear", {

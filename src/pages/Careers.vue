@@ -47,7 +47,7 @@
 <script setup lang="ts">
 import { gsap, ScrollTrigger } from "@/gsap";
 import { ref, onMounted, onBeforeUnmount } from 'vue';
-import * as SearchInput from 'vue-search-input/dist/vue-search-input.es'
+import SearchInput from 'vue-search-input'
 import { debounce } from "@/debounce";
 import Core from '@/components/Core.vue';
 import Jobs from '@/components/Jobs.vue';
@@ -124,6 +124,7 @@ function changeState(value?: string) {
 const de = debounce(() => { changeState() }, 250)
 
 onMounted(async () => {
+  console.log(SearchInput)
   getKeys(data, '')
   await new Promise(resolve => setTimeout(resolve, 1000));
   ScrollTrigger.batch(".appear", {

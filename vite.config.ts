@@ -1,4 +1,5 @@
 /// <reference types="vite-plugin-pages/client" />
+/// <reference types="vite-ssg" />
 import { fileURLToPath, URL } from 'node:url'
 
 import { defineConfig } from 'vite'
@@ -16,14 +17,18 @@ export default defineConfig({
   plugins: [vue(), Pages(),],
   resolve: {
     alias: [
-      {find: /^vue-search-input\//, replacement: '/node_modules/vue-search-input/'},
+      // {find: /^vue-search-input\//, replacement: '/node_modules/vue-search-input/'},
       {find: '@', replacement: fileURLToPath(new URL('./src', import.meta.url))},
     ]
   },
   optimizeDeps: {
-    exclude: ['vue-search-input'],
+    // include: ['vue-search-input'],
   },
   ssr: {
-    // noExternal: [/vue-search-input/],
-  }
+    noExternal: [/vue-search-input/],
+  },
+  ssgOptions: {
+    mock: true,
+    dirStyle: 'nested'
+  },
 })

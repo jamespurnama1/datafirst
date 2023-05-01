@@ -1,1 +1,0 @@
-declare module 'vue-search-input/dist/vue-search-input.es';
