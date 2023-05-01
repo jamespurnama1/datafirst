@@ -137,7 +137,7 @@ onBeforeUnmount(() => {
       <div class="appear flex flex-col md:flex-row gap-5 md:gap-10 lg:gap-20 select relative rounded-3xl shadow-lg bg-white py-5 lg:py-12 px-3 md:px-6 lg:px-12 w-full overflow-hidden">
           <ul class="items text-black flex flex-row md:flex-col gap-12 cursor-pointer justify-start md:w-1/3 lg:w-1/5 overflow-x-auto md:h-auto h-12">
             <li class="cost flex items-center gap-5 font-medium text-left text-sm md:text-lg mr-auto whitespace-nowrap md:whitespace-normal" @click="changeState('cost')"><img class="h-6 md:h-10" src="/solutions/recruitment/Coin.png" alt="" />Reduce operational cost</li>
-            <li class="efficiency flex items-center gap-5 font-medium text-left text-sm md:text-lg mr-auto whitespace-nowrap md:whitespace-normal" @click="changeState('efficiency')"><img class="h-6 md:h-10" src="/solutions/analytics/Performance.jpeg" alt="" />Improve efficiency &amp; productivity</li>
+            <li class="efficiency flex items-center gap-5 font-medium text-left text-sm md:text-lg mr-auto whitespace-nowrap md:whitespace-normal" @click="changeState('efficiency')"><img class="h-6 md:h-10" src="/solutions/analytics/Performance.png" alt="" />Improve efficiency &amp; productivity</li>
             <li class="skills flex items-center gap-5 font-medium text-left text-sm md:text-lg mr-auto whitespace-nowrap md:whitespace-normal" @click="changeState('skills')"><img class="h-6 md:h-10" src="/solutions/recruitment/Check.png" alt="" />Gain access to specialized skills</li>
           </ul>
           <div v-if="width > 1024" class="selector absolute top-0 left-0 h-1 w-[1px] transition-transform origin-left z-10" />
@@ -197,7 +197,7 @@ onBeforeUnmount(() => {
       </ul>
       <div class="absolute bottom-0 left-0 -z-10 w-full h-full">
         <div class="bg-gradient-to-t from-transparent to-white from-10% to-50% w-full h-full absolute" />
-        <img class="w-full h-full object-cover" src="/solutions/recruitment/Staffing.png" alt="Staffing" />
+        <img class="w-full h-full object-cover" src="/solutions/recruitment/Staffing.jpeg" alt="Staffing" />
       </div>
     </section>
     <section class="z-10 relative appear !min-h-0">

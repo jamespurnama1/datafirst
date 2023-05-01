@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { gsap, ScrollTrigger } from "@/gsap";
-import SearchInput from 'vue-search-input'
+import * as SearchInput from 'vue-search-input/dist/vue-search-input.es'
 import { onMounted, onBeforeUnmount, ref, type DefineComponent } from 'vue';
 import Blog from '@/components/Blog.vue';
 

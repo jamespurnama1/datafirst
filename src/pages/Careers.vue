@@ -47,7 +47,7 @@
 <script setup lang="ts">
 import { gsap, ScrollTrigger } from "@/gsap";
 import { ref, onMounted, onBeforeUnmount } from 'vue';
-import SearchInput from 'vue-search-input'
+import * as SearchInput from 'vue-search-input/dist/vue-search-input.es'
 import { debounce } from "@/debounce";
 import Core from '@/components/Core.vue';
 import Jobs from '@/components/Jobs.vue';

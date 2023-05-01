@@ -9,11 +9,21 @@ import Pages from 'vite-plugin-pages'
 export default defineConfig({
   build: {
     minify: false,
+    // commonjsOptions: {
+    //   include: [/vue-search-input/, /node_modules/]
+    // }
   },
   plugins: [vue(), Pages(),],
   resolve: {
-    alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
-    }
+    alias: [
+      {find: /^vue-search-input\//, replacement: '/node_modules/vue-search-input/'},
+      {find: '@', replacement: fileURLToPath(new URL('./src', import.meta.url))},
+    ]
+  },
+  optimizeDeps: {
+    exclude: ['vue-search-input'],
+  },
+  ssr: {
+    // noExternal: [/vue-search-input/],
   }
 })
