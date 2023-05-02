@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { gsap, ScrollTrigger } from "@/gsap";
-import { onMounted, onBeforeUnmount } from 'vue';
+import { onMounted, onBeforeUnmount, computed, ref } from 'vue';
 import Blog from '@/components/Blog.vue';
 import PartnersSection from '@/components/PartnersSection.vue';
 import { Swiper, SwiperSlide } from "swiper/vue";
@@ -9,7 +9,7 @@ import 'swiper/css';
 
 const modules = [Autoplay];
 
-defineProps<{
+const props = defineProps<{
   width: number
 }>()
 
@@ -107,7 +107,7 @@ const clients = [
         <p class="my-2 text-white lg:text-2xl text-center lg:text-left">Growth starts here.<br>Unleash the power of data with the right resources and&nbsp;insights.</p>
         <button class="bg-teal-900 hover:bg-teal-500 hover:scale-110 transition-all rounded-3xl my-2 py-3 px-5 2xl:py-5 2xl:px-12 text-white hover:text-teal-900 font-bold lg:ml-0 mx-auto text-sm md:text-lg 2xl:text-2xl"><router-link to="/solutions/DataAnalytics">Find Out How</router-link></button>
       </div>
-    <video loop muted autoplay playsinline class="object-cover -z-10 absolute top-0 left-0 brightness-75 w-full h-full" src="/Hero.mp4"/>
+    <video preload loop muted autoplay playsinline class="object-cover -z-10 absolute top-0 left-0 brightness-75 w-full h-full" src="/Hero.mp4"/>
     </section>
     <section class="appear mx-2 lg:mx-24 rounded-3xl shadow-lg bg-white py-12 lg:px-36 px-4 flex lg:justify-between items-center justify-center lg:flex-row flex-col lg:gap-0 gap-5">
       <h2 class="text-teal-900 font-bold lg:text-left text-center leading-tight">Trusted by Industry Leaders</h2>
@@ -171,7 +171,7 @@ const clients = [
     </section>
     <PartnersSection />
     <Blog :limit="3" :width="width" />
-    <section class="!min-h-[400px] h-[33vh] md:h-[50vh] lg:h-[75vh]">
+    <section class="!min-h-[400px] h-[33vh] md:h-[50vh] lg:h-[75vh] !mt-0 md:!mt-8">
       <div class="appear bg-gray rounded-t-3xl py-12 lg:px-32 px-12 h-full flex flex-col lg:flex-row justify-center items-center w-full">
         <h2 class="split leading-none text-center lg:text-left"><span>Tomorrow's</span><span> Growth,</span><br><span>Starts </span><span class="text-teal-900">Today.</span></h2>
         <button class="bg-teal-900 hover:scale-110 rounded-3xl lg:my-2 my-5 py-3 2xl:py-5 2xl:px-12 px-5 text-white font-bold lg:ml-auto transition-all duration-300 text-sm md:text-lg 2xl:text-2xl hover:shadow-[0_0_50px_0_rgba(0,0,0,0.3)] hover:shadow-teal-900/80"><router-link to="/contact">Schedule a Demo</router-link></button>

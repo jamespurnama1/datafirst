@@ -72,7 +72,7 @@ const partners = {
 </script>
 
 <template>
-  <section>
+  <section class="!mb-0 md:!mb-8">
     <div class="appear relative overflow-hidden bg-white min-h-[300px] lg:h-72 rounded-3xl shadow-lg py-6 px-6 lg:px-12 mb-3 lg:my-12 flex flex-col lg:flex-row lg:gap-72 lg:min-h-[240px]" v-for="(images, type) in partners">
       <h3 class="lg:text-left text-lg md:text-3xl lg:text-5xl 2xl:text-7xl mt-auto relative z-20">{{ type }}</h3>
       <div class="flex flex-1 justify-center items-center flex-wrap relative z-20">

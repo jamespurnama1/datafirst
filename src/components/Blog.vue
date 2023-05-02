@@ -64,6 +64,7 @@ function getKeys(val: string) {
     (Object.keys(o) as Array<keyof typeof o>).some(k => o[k].toLowerCase().includes(val.toLowerCase())));
   }
   result.value.length = props.limit ? props.limit : result.value.length
+  console.log(props.limit, result.value.length, props.width)
 }
 
 getKeys('')
@@ -76,7 +77,7 @@ defineExpose({
 <template>
   <section class="appear !m-0 md:!mx-8 lg:!mx-24">
     <component :is="width > 768 || route.name === 'Blog' ? 'div' : Swiper" :modules="modules" :observer="true" :space-between="50" :slides-per-view="1" :autoplay="{ delay: 5000 }" class="md:grid md:gap-5 lg:gap-12 md:grid-cols-2 lg:grid-cols-3 !p-8 md:!p-0">
-      <component :is="width > 768 || route.name === 'Blog' ? 'div' : SwiperSlide" v-for="(post, index) in result" class="h-[300px] lg:h-[512px] relative !flex flex-col justify-end shadow-lg bg-white overflow-hidden rounded-3xl lg:px-6 px-3 py-3 md:px-6 lg:py-12 my-5 first:mt-0">
+      <component :is="width > 768 || route.name === 'Blog' ? 'div' : SwiperSlide" v-for="(post, index) in result" class="min-h-[300px] lg:min-h-[512px] relative !flex flex-col justify-end shadow-lg bg-white overflow-hidden rounded-3xl lg:px-6 px-3 py-3 md:px-6 lg:py-12 lg:my-5 first:mt-0">
           <div class="absolute z-10 top-0 left-0 w-full h-full bg-gradient-to-b from-transparent from-30% md:from-40% to-white to-50% md:to-75%" />
           <img class="absolute top-0 left-0 w-full md:h-3/4 h-1/2 object-cover" :src="`/blog/${post.img}.jpeg`" :alt="post.title" />
           <h3 class="relative z-20 text-base md:text-lg lg:text-3xl" v-html="post.title" />
