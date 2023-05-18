@@ -19,7 +19,7 @@
             for a better web.
           </div>
         </div> -->
-        <div class="col-lg-6">
+        <div class="w-100">
           <ul
             class="nav nav-footer justify-content-center justify-content-lg-end"
           >
