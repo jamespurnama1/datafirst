@@ -45,13 +45,14 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import setNavPills from "@/assets/js/nav-pills.js";
+import { onMounted } from 'vue';
 
-export default {
-  name: "nav-pill",
-  mounted() {
+// export default {
+//   name: "nav-pill",
+  onMounted(() => {
     setNavPills();
-  },
-};
+  }),
+// };
 </script>

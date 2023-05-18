@@ -1,16 +1,16 @@
 import { initializeApp } from 'firebase/app'
 import { getDatabase, ref, set } from 'firebase/database'
-// ... other firebase imports
+import { initializeAppCheck, ReCaptchaV3Provider } from "firebase/app-check";
 
 export const firebaseApp = initializeApp({
-  apiKey: "AIzaSyB46MtbMJ5XOekpQwDaOWB8vCcElacg-cA",
-  authDomain: "datafirst-538f9.firebaseapp.com",
-  databaseURL: "https://datafirst-538f9-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "datafirst-538f9",
-  storageBucket: "datafirst-538f9.appspot.com",
-  messagingSenderId: "895226027021",
-  appId: "1:895226027021:web:e5a909dd7983df6819c944",
-  measurementId: "G-XWQGSM7BMT"
+  apiKey: import.meta.env.API_KEY,
+  authDomain: `${import.meta.env.PROJECT_ID}.firebaseapp.com`,
+  databaseURL: `https://${import.meta.env.DATABASE_NAME}.firebasedatabase.app`,
+  projectId: import.meta.env.PROJECT_ID,
+  storageBucket: `${import.meta.env.PROJECT_ID}.appspot.com`,
+  messagingSenderId: import.meta.env.SENDER_ID,
+  appId: import.meta.env.APP_ID,
+  measurementId: import.meta.env.MEASUREMENT_ID
 })
 
 // used for the databas refs
@@ -43,3 +43,11 @@ export const writeBlog = function writeUserData(title, author, desc, content, im
     date
   });
 }
+
+const appCheck = initializeAppCheck(app, {
+  provider: new ReCaptchaV3Provider(import.meta.env.SITE_KEY),
+
+  // Optional argument. If true, the SDK automatically refreshes App Check
+  // tokens as needed.
+  isTokenAutoRefreshEnabled: true
+});

@@ -40,7 +40,7 @@
                 </div>
               </td>
               <td>
-                <p class="text-xs font-weight-bold mb-0">Manager</p>
+                <p class="text-xs font-weight-bold mb-0">{{post.slug}}</p>
                 <!-- <p class="text-xs text-secondary mb-0">Organization</p> -->
               </td>
               <!-- <td class="align-middle text-center text-sm">

@@ -50,7 +50,7 @@
               <span v-else class="d-sm-inline d-none">Sign In</span>
             </router-link>
           </li>
-          <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+          <li class="nav-item d-xl-none px-3 d-flex align-items-center">
             <a
               href="#"
               @click="toggleSidebar"
@@ -64,11 +64,11 @@
               </div>
             </a>
           </li>
-          <li class="px-3 nav-item d-flex align-items-center">
+          <!-- <li class="px-3 nav-item d-flex align-items-center">
             <a class="p-0 nav-link text-white" @click="toggleConfigurator">
               <i class="cursor-pointer fa fa-cog fixed-plugin-button-nav"></i>
             </a>
-          </li>
+          </li> -->
           <li
             class="nav-item dropdown d-flex align-items-center"
             :class="this.$store.state.isRTL ? 'ps-2' : 'pe-2'"
@@ -89,7 +89,17 @@
               :class="showMenu ? 'show' : ''"
               aria-labelledby="dropdownMenuButton"
             >
-              <li class="mb-2">
+            <li class="">
+              <div class="d-flex flex-column align-items-center justify-content-center">
+                <h6 class="mb-0 text-sm font-weight-normal">No new notifications.
+                </h6>
+                <!-- <p class="mb-0 text-xs text-secondary">
+                  <i class="fa fa-clock me-1"></i>
+                  13 minutes ago
+                </p> -->
+              </div>
+            </li>
+              <!-- <li class="mb-2">
                 <a class="dropdown-item border-radius-md" href="javascript:;">
                   <div class="py-1 d-flex">
                     <div class="my-auto">
@@ -189,7 +199,7 @@
                     </div>
                   </div>
                 </a>
-              </li>
+              </li> -->
             </ul>
           </li>
         </ul>

@@ -35,7 +35,7 @@
           class="navbar-brand-img h-100"
           alt="main_logo"
         />
-        <span class="ms-2 font-weight-bold me-2">DataFirst Dashboard</span>
+        <!-- <span class="ms-2 font-weight-bold me-2">DataFirst<br>Dashboard</span> -->
       </router-link>
     </div>
     <hr class="mt-0 horizontal dark" />
@@ -44,8 +44,8 @@
 </template>
 <script>
 import SidenavList from "./SidenavList.vue";
-import logo from "@/assets/img/logo-ct-dark.png";
-import logoWhite from "@/assets/img/logo-ct.png";
+import logo from "@/assets/img/logo.webp";
+import logoWhite from "@/assets/img/logo-dark.webp";
 
 export default {
   name: "side-nav",
