@@ -38,6 +38,7 @@
                         color="success"
                         fullWidth
                         size="lg"
+                        @click.prevent="console.log('1')"
                       >Sign in</argon-button>
                     </div>
                   </form>
