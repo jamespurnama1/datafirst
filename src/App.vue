@@ -1,15 +1,15 @@
 <template>
   <div
-    v-show="this.$store.state.layout === 'landing'"
+    v-show="store.state.layout === 'landing'"
     class="landing-bg h-100 bg-gradient-primary position-fixed w-100"
   ></div>
   <sidenav
-    :custom_class="this.$store.state.mcolor"
+    :custom_class="store.state.mcolor"
     :class="[
-      this.$store.state.isTransparent,
-      this.$store.state.isRTL ? 'fixed-end' : 'fixed-start'
+      store.state.isTransparent,
+      store.state.isRTL ? 'fixed-end' : 'fixed-start'
     ]"
-    v-if="this.$store.state.showSidenav"
+    v-if="store.state.showSidenav"
   />
   <main
     class="main-content position-relative max-height-vh-100 h-100 border-radius-lg"
@@ -18,18 +18,18 @@
     <navbar
       :class="[navClasses]"
       :textWhite="
-        this.$store.state.isAbsolute ? 'text-white opacity-8' : 'text-white'
+        store.state.isAbsolute ? 'text-white opacity-8' : 'text-white'
       "
       :minNav="navbarMinimize"
-      v-if="this.$store.state.showNavbar"
+      v-if="store.state.showNavbar"
     />
     <router-view />
-    <app-footer v-show="this.$store.state.showFooter" />
+    <app-footer v-show="store.state.showFooter" />
     <configurator
       :toggle="toggleConfigurator"
       :class="[
-        this.$store.state.showConfig ? 'show' : '',
-        this.$store.state.hideConfigButton ? 'd-none' : ''
+        store.state.showConfig ? 'show' : '',
+        store.state.hideConfigButton ? 'd-none' : ''
       ]"
     />
   </main>
