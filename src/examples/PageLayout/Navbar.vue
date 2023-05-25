@@ -26,60 +26,22 @@
           <span class="navbar-toggler-bar bar3"></span>
         </span>
       </button>
-      <div class="collapse navbar-collapse" id="navigation">
-        <ul class="navbar-nav mx-auto">
-          <li class="nav-item">
-            <router-link
-              class="nav-link d-flex align-items-center me-2 active"
-              aria-current="page"
-              to="/dashboard"
-            >
-              <i
-                class="fa fa-chart-pie opacity-6 me-1"
-                aria-hidden="true"
-                :class="isBlur ? 'text-dark' : 'text-white'"
-              ></i>
-              Dashboard
-            </router-link>
-          </li>
-          <li class="nav-item">
-            <router-link class="nav-link me-2" to="/profile">
-              <i
-                class="fa fa-user opacity-6 me-1"
-                aria-hidden="true"
-                :class="isBlur ? 'text-dark' : 'text-white'"
-              ></i>
-              Profile
-            </router-link>
-          </li>
-          <li class="nav-item">
-            <router-link class="nav-link me-2" to="/signup">
-              <i
-                class="fas fa-user-circle opacity-6 me-1"
-                aria-hidden="true"
-                :class="isBlur ? 'text-dark' : 'text-white'"
-              ></i>
-              Sign Up
-            </router-link>
-          </li>
-          <li class="nav-item">
-            <router-link class="nav-link me-2" to="/signin">
-              <i
-                class="fas fa-key opacity-6 me-1"
-                aria-hidden="true"
-                :class="isBlur ? 'text-dark' : 'text-white'"
-              ></i>
-              Sign In
-            </router-link>
-          </li>
-        </ul>
-        <ul class="navbar-nav d-lg-block d-none">
+      <div class="collapse navbar-collapse justify-content-between d-flex" id="navigation">
+        <router-link
+          v-if="!this.$route.name === 'Signup'"
+          to="/signup"
+          class="btn btn-sm mb-0 mx-auto bg-gradient-info"
+          :class="isBtn"
+          >
+          Request Access
+        </router-link>
+        <ul class="navbar-nav d-lg-block d-none ms-auto">
           <li class="nav-item">
             <a
-              href="https://www.creative-tim.com/product/vue-argon-dashboard"
+              href="https://datafirstservices.com"
               class="btn btn-sm mb-0 me-1"
               :class="isBtn"
-              >Free download</a
+              >Go to Live Site</a
             >
           </li>
         </ul>

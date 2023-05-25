@@ -2,13 +2,13 @@
   <div v-if="confirm"
     class="position-fixed w-100 h-100 d-flex justify-content-center align-items-center z-index-3 top-0 left-0">
     <info-card class="position-relative z-index-3" @clicked="del(confirm)" @cancel="confirm = 0"
-      title="Are you sure?" desc="You are about to delete an existing job listing." button="Delete" buttonColor="danger" />
+      title="Are you sure?" desc="You are about to delete admin." button="Delete" buttonColor="danger" />
     <div class="bg-white opacity-5 h-100 w-100 position-absolute top-0 left-0" />
   </div>
   <div class="card">
     <div class="card-header pb-0 d-flex align-items-center justify-content-between">
-      <h6>Blog</h6>
-      <router-link class="text-white" to="/blog/new">
+      <h6>Admin</h6>
+      <router-link class="text-white" to="/users/new">
         <button class="d-flex align-items-center justify-content-center mb-3 btn btn-dark btn-sm w-10 cursor-pointer">
           +
         </button>

@@ -1,26 +1,26 @@
 <template>
-  <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" :class="this.$store.state.isRTL ? 'top-0 position-sticky z-index-sticky' : ''
+  <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" :class="store.state.isRTL ? 'top-0 position-sticky z-index-sticky' : ''
     " v-bind="$attrs" id="navbarBlur" data-scroll="true">
-    <div class="px-3 py-1 container-fluid">
-      <breadcrumbs :currentPage="currentRouteName" textWhite="text-white" />
+    <div class="px-0 py-2 container-fluid">
+      <breadcrumbs :currentPage="$route.name" textWhite="text-white" />
 
       <div class="mt-2 collapse navbar-collapse mt-sm-0 me-md-0 me-sm-4"
-        :class="this.$store.state.isRTL ? 'px-0' : 'me-sm-4'" id="navbar">
-        <div class="pe-md-3 d-flex align-items-center" :class="this.$store.state.isRTL ? 'me-md-auto' : 'ms-md-auto'">
+        :class="store.state.isRTL ? 'px-0' : 'me-sm-4'" id="navbar">
+        <!-- <div class="pe-md-3 d-flex align-items-center" :class="store.state.isRTL ? 'me-md-auto' : 'ms-md-auto'">
           <div class="input-group">
             <span class="input-group-text text-body">
               <i class="fas fa-search" aria-hidden="true"></i>
             </span>
-            <input type="text" class="form-control" :placeholder="this.$store.state.isRTL ? 'أكتب هنا...' : 'Type here...'
+            <input type="text" class="form-control" :placeholder="store.state.isRTL ? 'أكتب هنا...' : 'Type here...'
               " />
           </div>
-        </div>
-        <ul class="navbar-nav justify-content-end">
+        </div> -->
+        <ul class="navbar-nav ms-auto justify-content-end">
           <li class="nav-item d-flex pe-3 align-items-center">
-            <router-link :to="{ name: 'Signin' }" class="px-0 nav-link font-weight-bold text-white" target="_blank">
-              <i class="fa fa-user" :class="this.$store.state.isRTL ? 'ms-sm-2' : 'me-sm-2'"></i>
-              <span v-if="this.$store.state.isRTL" class="d-sm-inline d-none">يسجل دخول</span>
-              <span v-else class="d-sm-inline d-none">Sign In</span>
+            <router-link :to="{ name: 'Profile' }" class="px-0 nav-link font-weight-bold text-white">
+              <i class="fa fa-user" :class="store.state.isRTL ? 'ms-sm-2' : 'me-sm-2'"></i>
+              <!-- <span v-if="store.state.isRTL" class="d-sm-inline d-none">يسجل دخول</span> -->
+              <span v-if="store.state.user" class="d-sm-inline d-none">{{ store.state.user.displayName }}</span>
             </router-link>
           </li>
           <li class="nav-item d-xl-none px-3 d-flex align-items-center">
@@ -37,7 +37,7 @@
               <i class="cursor-pointer fa fa-cog fixed-plugin-button-nav"></i>
             </a>
           </li> -->
-          <li class="nav-item dropdown d-flex align-items-center" :class="this.$store.state.isRTL ? 'ps-2' : 'pe-2'">
+          <li class="nav-item dropdown d-flex align-items-center" :class="store.state.isRTL ? 'ps-2' : 'pe-2'">
             <a href="#" class="p-0 nav-link text-white" :class="[showMenu ? 'show' : '']" id="dropdownMenuButton"
               data-bs-toggle="dropdown" aria-expanded="false" @click="showMenu = !showMenu">
               <i class="cursor-pointer fa fa-bell"></i>
@@ -162,41 +162,28 @@
     </div>
   </nav>
 </template>
-<script>
+<script setup>
 import Breadcrumbs from "../Breadcrumbs.vue";
-import { mapMutations, mapActions } from "vuex";
+import { ref } from 'vue';
+import { useRoute } from 'vue-router';
+import { useStore } from "vuex";
 
-export default {
-  name: "navbar",
-  data ()
-  {
-    return {
-      showMenu: false
-    };
-  },
-  props: ["minNav", "textWhite"],
-  created ()
-  {
-    this.minNav;
-  },
-  methods: {
-    ...mapMutations(["navbarMinimize", "toggleConfigurator"]),
-    ...mapActions(["toggleSidebarColor"]),
+const showMenu = ref(false)
+const props = defineProps(["minNav", "textWhite"])
+const store = useStore()
+const route = useRoute()
+const currentRouteName = ref(route.name)
+const toggleSidebarColor = () => store.dispatch('toggleSidebarColor', 'bg-white');
+const navbarMinimize = () => store.commit('navbarMinimize');
 
-    toggleSidebar ()
-    {
-      this.toggleSidebarColor("bg-white");
-      this.navbarMinimize();
-    }
-  },
-  components: {
-    Breadcrumbs
-  },
-  computed: {
-    currentRouteName ()
-    {
-      return this.$route.name;
-    }
-  }
-};
+props.minNav()
+
+// ...mapMutations(["navbarMinimize", "toggleConfigurator"]),
+// ...mapActions(["toggleSidebarColor"]),
+
+function toggleSidebar ()
+{
+  toggleSidebarColor()
+  navbarMinimize()
+}
 </script>

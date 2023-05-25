@@ -1,5 +1,5 @@
 <template>
-  <div class="py-4 container-fluid">
+  <div v-if="props.signedIn" class="py-4 container-fluid">
     <div class="row">
        <div class="col-12">
           <jobs-table />
@@ -10,20 +10,32 @@
           <blog-table />
         </div>
     </div>
+    <!-- <div class="mt-4 row" v-if="store.state.user.uid === superAdmin">
+          <div class="col-12">
+            <users-table />
+          </div>
+      </div> -->
   </div>
 </template>
 <script setup>
 import JobsTable from "./components/JobsTable.vue";
 import BlogTable from "./components/BlogTable.vue";
-import Card from "@/examples/Cards/Card.vue";
-import GradientLineChart from "@/examples/Charts/GradientLineChart.vue";
-import Carousel from "./components/Carousel.vue";
-import CategoriesCard from "./components/CategoriesCard.vue";
+// import UsersTable from "./components/UsersTable.vue";
+// import Card from "@/examples/Cards/Card.vue";
+// import GradientLineChart from "@/examples/Charts/GradientLineChart.vue";
+// import Carousel from "./components/Carousel.vue";
+// import CategoriesCard from "./components/CategoriesCard.vue";
+import { ref, defineProps } from 'vue';
+import { useStore } from 'vuex';
 
 import US from "@/assets/img/icons/flags/US.png";
 import DE from "@/assets/img/icons/flags/DE.png";
 import GB from "@/assets/img/icons/flags/GB.png";
 import BR from "@/assets/img/icons/flags/BR.png";
+
+const props = defineProps(['signedIn'])
+const store = useStore()
+const superAdmin = ref('ES68S2SIKWbS97tjBXTQ3J1kVbe2')
 
 
       const stats = {

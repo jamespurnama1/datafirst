@@ -5,7 +5,9 @@
     :class="`${this.$store.state.darkMode ? 'bg-transparent' : 'bg-success'}`"
   />
   <aside
-    class="my-3 overflow-auto border-0 sidenav navbar navbar-vertical navbar-expand-xs border-radius-xl"
+    @mouseover="collapsed = false"
+    @mouseleave="collapsed = true"
+    class="my-3 overflow-auto border-0 sidenav navbar navbar-vertical navbar-expand-xs border-radius-xl bg-white"
     :class="`${
       this.$store.state.isRTL
         ? 'me-3 rotate-caret fixed-end'
@@ -13,7 +15,7 @@
     } 
     ${
       this.$store.state.layout === 'landing'
-        ? 'bg-transparent shadow-none'
+        ? 'shadow-none'
         : ' '
     } ${this.$store.state.sidebarType}`"
     id="sidenav-main"
@@ -39,7 +41,7 @@
       </router-link>
     </div>
     <hr class="mt-0 horizontal dark" />
-    <sidenav-list :cardBg="custom_class" />
+    <sidenav-list :cardBg="custom_class" :collapsed="collapsed" />
   </aside>
 </template>
 <script>
@@ -55,7 +57,8 @@ export default {
   data() {
     return {
       logo,
-      logoWhite
+      logoWhite,
+      collapsed: true
     };
   },
   props: ["custom_class", "layout"]

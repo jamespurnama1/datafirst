@@ -1,6 +1,6 @@
 <template>
-  <div class="py-4 container-fluid">
-    <div class=" row">
+  <div v-if="props.signedIn" class="py-4 container-fluid">
+    <div class="row">
       <div class="col-12">
         <blog-table />
       </div>
@@ -9,8 +9,10 @@
 </template>
 
 <script setup>
+import { defineProps } from 'vue';
 import BlogTable from "./components/BlogTable.vue";
 // import ProjectsTable from "./components/ProjectsTable.vue";
+const props = defineProps(['signedIn']);
 
       const stats = {
         titleColor: "opacity-7 text-white",

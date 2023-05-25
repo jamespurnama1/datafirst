@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 <template>
-  <button class="btn mb-0" :class="getClasses(variant, color, size, fullWidth, active)">
+  <button class="btn mb-0" :disabled="disabled" :class="getClasses(variant, color, size, fullWidth, active, disabled)">
     <slot />
   </button>
 </template>
@@ -29,13 +29,21 @@ export default {
       type: Boolean,
       default: false,
     },
+    disabled: {
+      type: Boolean,
+      default: false
+    }
   },
   methods: {
-    getClasses: (variant, color, size, fullWidth, active) => {
-      let colorValue, sizeValue, fullWidthValue, activeValue;
+    getClasses: (variant, color, size, fullWidth, active, disabled) => {
+      let colorValue, sizeValue, fullWidthValue, activeValue, opacity, cursor;
 
       // Setting the button variant and color
-      if (variant === "gradient") {
+      if (disabled) {
+        colorValue = `bg-gradient-dark`;
+        opacity = `opacity-3`;
+        cursor = `cursor-disabled`;
+      } else if (variant === "gradient") {
         colorValue = `bg-gradient-${color}`;
       } else if (variant === "outline") {
         colorValue = `btn-outline-${color}`;
@@ -49,7 +57,7 @@ export default {
 
       activeValue = active ? "active" : null;
 
-      return `${colorValue} ${sizeValue} ${fullWidthValue} ${activeValue}`;
+      return `${colorValue} ${cursor} ${opacity} ${sizeValue} ${fullWidthValue} ${activeValue}`;
     },
   },
 };

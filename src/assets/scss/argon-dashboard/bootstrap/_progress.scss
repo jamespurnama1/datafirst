@@ -9,7 +9,9 @@
 // scss-docs-end progress-keyframes
 
 .progress {
+  position: absolute;
   display: flex;
+  width: 100%;
   height: $progress-height;
   overflow: hidden; // force rounded corners by cropping it
   @include font-size($progress-font-size);

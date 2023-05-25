@@ -12,7 +12,21 @@
     font-weight: $table-head-font-weight;
   }
 
+  /* tr {
+    overflow: hidden;
+    height: 60px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  } */
+
   td {
+    .limit {
+      overflow: hidden;
+      max-width: 300px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
     .progress {
       height: $table-progress-height;
       width: $table-progress-width;
@@ -28,11 +42,12 @@
   &.align-items-center {
     td,
     th {
-      vertical-align: middle;
+      vertical-align: center;
     }
   }
   tbody{
     tr:last-child{
+
       td{
         border-width: 0;
       }

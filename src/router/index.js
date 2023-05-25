@@ -1,15 +1,19 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Dashboard from "../views/Dashboard.vue";
 import Blog from "../views/Blog.vue";
+import BlogEditor from "../views/components/BlogEditor.vue";
 import Jobs from "../views/Jobs.vue";
+import JobEditor from "../views/components/JobEditor.vue";
+import Users from "../views/Users.vue";
 // import VirtualReality from "../views/VirtualReality.vue";
 // import RTL from "../views/Rtl.vue";
 import Profile from "../views/Profile.vue";
 import Signup from "../views/Signup.vue";
 import Signin from "../views/Signin.vue";
-import { useFirebaseAuth, getCurrentUser } from 'vuefire';
-
-const auth = useFirebaseAuth()
+import { getCurrentUser, useCurrentUser } from 'vuefire';
+import { getUser } from '@/firebase'
+import { useStore } from 'vuex';
+import { nextTick } from 'vue';
 
 const routes = [
   {
@@ -25,14 +29,26 @@ const routes = [
   },
   {
     path: "/blog",
-    name: "blog",
+    name: "Blog",
     component: Blog,
+    meta: { requiresAuth: true }
+  },
+  {
+    path: "/blog/:id",
+    name: "Blog Editor",
+    component: BlogEditor,
     meta: { requiresAuth: true }
   },
   {
     path: "/jobs",
     name: "Jobs",
     component: Jobs,
+    meta: { requiresAuth: true }
+  },
+  {
+    path: "/jobs/:id",
+    name: "Job Editor",
+    component: JobEditor,
     meta: { requiresAuth: true }
   },
   // {
@@ -49,15 +65,27 @@ const routes = [
     path: "/profile",
     name: "Profile",
     component: Profile,
+    meta: { requiresAuth: true }
   },
+  // {
+  //   path: "/users",
+  //   name: "Admins",
+  //   component: Users,
+  //   meta: { requiresAuth: true }
+  // },
   {
     path: "/signin",
     name: "Signin",
     component: Signin,
   },
+  // {
+  //   path: "/signup",
+  //   name: "Signup",
+  //   component: Signup,
+  // },
   {
-    path: "/signup",
-    name: "Signup",
+    path: "/reset",
+    name: "Reset",
     component: Signup,
   },
   {
@@ -87,6 +115,7 @@ router.beforeEach(async (to) => {
           redirect: to.fullPath,
         },
       }
+    } else {
     }
   }
 })

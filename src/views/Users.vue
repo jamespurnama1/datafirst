@@ -1,32 +1,18 @@
 <template>
-  <div v-if="props.signedIn" class="py-4 container-fluid">
+  <div class="py-4 container-fluid">
     <div class=" row">
       <div class="col-12">
-        <jobs-table />
+        <users-table />
       </div>
     </div>
-    <!-- <div class="mt-4 row">
-      <div class="col-12">
-        <projects-table />
-      </div>
-    </div> -->
   </div>
 </template>
 
 <script setup>
 import { defineProps } from 'vue';
-import JobsTable from "./components/JobsTable.vue";
+import UsersTable from "./components/UsersTable.vue";
 // import ProjectsTable from "./components/ProjectsTable.vue";
 const props = defineProps(['signedIn']);
-// export default {
-//   name: "tables",
-//   components: {
-//     AuthorsTable,
-//     ProjectsTable
-//   },
-//   data ()
-//   {
-//     return {
       const stats = {
         titleColor: "opacity-7 text-white",
         descColor: "text-white",
@@ -50,8 +36,8 @@ const props = defineProps(['signedIn']);
           desc: "15/100",
           classIcon: "text-dark ni ni-note-03",
         },
-      }
-  //   };
-  // },
+      // },
+    };
+//   },
 // };
 </script>

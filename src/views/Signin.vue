@@ -14,7 +14,7 @@
     <section>
       <div class="page-header min-vh-100">
         <div class="container">
-          <div class="row">
+          <div class="row w-100 align-items-center justify-content-center">
             <div class="mx-auto col-xl-4 col-lg-5 col-md-7 d-flex flex-column mx-lg-0">
               <div class="card card-plain">
                 <div class="pb-0 card-header text-start">
@@ -24,12 +24,12 @@
                 <div class="card-body">
                   <form role="form">
                     <div class="mb-3">
-                      <argon-input type="email" placeholder="Email" name="email" size="lg" />
+                      <argon-input @value="(em) => email = em.value" type="email" placeholder="Email" name="email" size="lg" />
                     </div>
                     <div class="mb-3">
-                      <argon-input type="password" placeholder="Password" name="password" size="lg" />
+                      <argon-input @value="(pass) => password = pass.value" type="password" placeholder="Password" name="password" size="lg" />
                     </div>
-                    <argon-switch id="rememberMe">Remember me</argon-switch>
+                    <argon-switch @change="(e) => remember = e.target.checked" id="rememberMe">Remember me</argon-switch>
 
                     <div class="text-center">
                       <argon-button
@@ -38,23 +38,23 @@
                         color="success"
                         fullWidth
                         size="lg"
-                        @click.prevent="console.log('1')"
+                        @click.prevent="signInFunc(email, password)"
                       >Sign in</argon-button>
                     </div>
                   </form>
                 </div>
                 <div class="px-1 pt-0 text-center card-footer px-lg-2">
                   <p class="mx-auto mb-4 text-sm">
-                    Don't have an account?
-                    <a
-                      href="javascript:;"
+                    Forgot your password?
+                    <router-link
+                      to="/reset"
                       class="text-success text-gradient font-weight-bold"
-                    >Sign up</a>
+                    >Reset password</router-link>
                   </p>
                 </div>
               </div>
             </div>
-            <div
+            <!-- <div
               class="top-0 my-auto text-center col-6 d-lg-flex d-none h-100 pe-0 position-absolute end-0 justify-content-center flex-column"
             >
               <div
@@ -70,7 +70,7 @@
                   class="text-white position-relative"
                 >The more effortless the writing looks, the more effort the writer actually put into the process.</p>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -78,34 +78,72 @@
   </main>
 </template>
 
-<script>
-import Navbar from "@/examples/PageLayout/Navbar.vue";
-import ArgonInput from "@/components/ArgonInput.vue";
-import ArgonSwitch from "@/components/ArgonSwitch.vue";
-import ArgonButton from "@/components/ArgonButton.vue";
-const body = document.getElementsByTagName("body")[0];
+<script setup>
+  import { onBeforeUnmount, ref, defineProps } from 'vue';
+  import { useStore } from 'vuex';
+  import { useRoute, useRouter } from 'vue-router';
+  import  { signIn, persistence } from '@/firebase'
+  import Navbar from "@/examples/PageLayout/Navbar.vue";
+  import ArgonInput from "@/components/ArgonInput.vue";
+  import ArgonSwitch from "@/components/ArgonSwitch.vue";
+  import ArgonButton from "@/components/ArgonButton.vue";
 
-export default {
-  name: "signin",
-  components: {
-    Navbar,
-    ArgonInput,
-    ArgonSwitch,
-    ArgonButton,
-  },
-  created() {
-    this.$store.state.hideConfigButton = true;
-    this.$store.state.showNavbar = false;
-    this.$store.state.showSidenav = false;
-    this.$store.state.showFooter = false;
-    body.classList.remove("bg-gray-100");
-  },
-  beforeUnmount() {
-    this.$store.state.hideConfigButton = false;
-    this.$store.state.showNavbar = true;
-    this.$store.state.showSidenav = true;
-    this.$store.state.showFooter = true;
+  const body = document.getElementsByTagName("body")[0];
+  const store = useStore();
+  const route = useRoute();
+  const router = useRouter();
+  const email = ref('');
+  const password = ref('');
+  const errorCode = ref('');
+  const errorMessage = ref('');
+  const props = defineProps(['signedIn'])
+  const loading = ref(false)
+
+  store.state.hideConfigButton = true;
+  store.state.showNavbar = false;
+  store.state.showSidenav = false;
+  store.state.showFooter = false;
+  body.classList.remove("bg-gray-100");
+
+  // function signIn(j, k) {
+  //   console.log(j, k)
+  //   signInWithEmailAndPassword(auth, j, k).then((userCredential) => {
+  //       console.log(route.query.redirect, userCredential)
+  //       router.push(route.query.redirect || '/')
+  //       // const user = userCredential.user;
+  //     }).catch((error) => {
+  //       errorCode.value = error.code;
+  //       errorMessage.value = error.message;
+  //     });
+  // }
+
+  const remember = ref(false)
+
+  async function signInFunc(j, k) {
+    let repeat;
+    try {
+      remember.value ? null : persistence()
+      await signIn(j, k)
+      repeat = setInterval(() => {
+        store.dispatch('incrementProgress');
+      }, 1000)
+      // console.log(route.query.redirect)
+      // // setTimeout(() => {
+      //   await nextTick()
+      //   router.push(route.query.redirect || '/')
+      // }, 500)
+    } catch(error) {
+      store.dispatch('errorProgress');
+      console.error(error)
+    }
+    repeat ? clearInterval(repeat) : null;
+  }
+
+  onBeforeUnmount(() => {
+    store.state.hideConfigButton = false;
+    store.state.showNavbar = true;
+    store.state.showSidenav = true;
+    store.state.showFooter = true;
     body.classList.add("bg-gray-100");
-  },
-};
+  })
 </script>

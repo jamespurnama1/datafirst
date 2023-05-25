@@ -5,7 +5,11 @@
         <i :class="getIcon(icon)"></i>
       </span>
       <input
+        v-if="el === 'input'"
+        @input="(e) => $emit('value', e.target)"
         :type="type"
+        :accept="type === 'file' ? 'image/*' : ''"
+        multiple="false"
         class="form-control"
         :class="getClasses(size, valid)"
         :name="name"
@@ -13,6 +17,19 @@
         :value="value"
         :placeholder="placeholder"
         :isRequired="isRequired"
+        :disabled="disabled"
+      />
+      <textarea
+        v-else-if="el === 'textarea'"
+        @input="(e) => $emit('value', e.target)"
+        class="form-control min-height-150"
+        :class="getClasses(size, valid)"
+        :name="name"
+        :id="id"
+        :value="value"
+        :placeholder="placeholder"
+        :isRequired="isRequired"
+        :disabled="disabled"
       />
       <span v-if="iconDir === 'right'" class="input-group-text">
         <i :class="getIcon(icon)"></i>
@@ -34,6 +51,10 @@ export default {
       default: false,
     },
     icon: String,
+    el: {
+      type: String,
+      default: 'input'
+    },
     iconDir: String,
     name: String,
     id: String,
@@ -41,6 +62,7 @@ export default {
     placeholder: String,
     type: String,
     isRequired: Boolean,
+    disabled: Boolean
   },
   methods: {
     getClasses: (size, valid) => {

@@ -2,7 +2,7 @@ import { createStore } from "vuex";
 
 export default createStore({
   state: {
-    hideConfigButton: false,
+    hideConfigButton: true,
     isPinned: true,
     showConfig: false,
     sidebarType: "bg-white",
@@ -16,7 +16,11 @@ export default createStore({
     showNavbar: true,
     showFooter: true,
     showMain: true,
-    layout: "default"
+    layout: "default",
+    user: null,
+    progress: 0,
+    progressColor: 'primary',
+    counter: false,
   },
   mutations: {
     toggleConfigurator(state) {
@@ -44,11 +48,47 @@ export default createStore({
       } else {
         state.isNavFixed = false;
       }
+    },
+    setUser(state, payload) {
+      state.user = payload;
+    },
+    progress(state, payload) {
+      state.progress = Math.min(payload, 100)
+      // if (state.progress = 100) {
+      //   await new Promise(resolve => setTimeout(resolve, 2000));
+      //   state.progress = 0;
+      //   state.progressColor = 'primary'
+      // };
+    },
+    colorChange(state, payload) {
+      state.progressColor = payload
     }
   },
   actions: {
     toggleSidebarColor({ commit }, payload) {
       commit("sidebarType", payload);
+    },
+    async incrementProgress({ commit, state }) {
+      state.counter = true;
+      while (state.progress < 100 && state.counter) {
+        await new Promise(resolve => setTimeout(resolve, 100));
+        if (state.counter)
+          commit('progress', state.progress + 10);
+      }
+      state.counter = false;
+    },
+    async errorProgress({ commit }) {
+      commit('progress', 100);
+      commit('colorChange', 'error');
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      commit('colorChange', 'info');
+      commit('progress', 0);
+    },
+    async completeProgress({ commit }) {
+      commit('progress', 100);
+      commit('colorChange', 'info');
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      commit('progress', 0);
     }
   },
   getters: {}

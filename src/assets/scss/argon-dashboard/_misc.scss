@@ -297,6 +297,9 @@ hr.horizontal {
 .cursor-pointer {
   cursor: pointer;
 }
+.cursor-disabled {
+  cursor: not-allowed;
+}
 
 // Translate 50% Class
 .transform-translate-50{

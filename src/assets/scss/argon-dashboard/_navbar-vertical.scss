@@ -74,6 +74,7 @@
           .navbar-collapse {
             display: block;
             overflow: auto;
+            overflow-x: hidden;
             height: $navbar-vertical-inner;
           }
           // Container
@@ -109,6 +110,12 @@
             i {
               pointer-events: none;
             }
+          }
+
+          .nav-divider {
+            opacity: 0%;
+            height: 0;
+            margin-top: 0;
           }
 
           .navbar-nav .nav-item {
@@ -288,6 +295,12 @@
     &.g-sidenav-pinned {
       .sidenav {
         transform: translateX(0);
+
+        .nav-divider {
+          opacity: 100%;
+          margin-top: 1rem;
+          height: initial;
+        }
       }
     }
   }
@@ -603,6 +616,12 @@
             opacity: 1;
           }
         }
+
+        .nav-divider {
+            opacity: 100%;
+            height: initial;
+            margin-top: 1rem;
+          }
 
         .nav-item {
           .nav-link {
