@@ -3,7 +3,7 @@
   <info-card class="position-relative z-index-3" @clicked="delUser() && router.push('/signup'); confirm = false" @cancel="confirm = false" title="Are you sure?" desc="You are about to delete your account." button="Delete" buttonColor="danger" />
   <div class="bg-white opacity-5 h-100 w-100 position-absolute top-0 left-0" />
 </div>
-  <main v-if="props.signedIn">
+  <main v-if="props.signedIn && store.state.user">
     <div class="container-fluid">
       <div class="page-header min-height-300" style="
           background-image: url('/cover.jpg');

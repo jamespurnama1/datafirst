@@ -76,6 +76,7 @@ const signedIn = ref(false)
     // User is signed in, see docs for a list of available properties
     // https://firebase.google.com/docs/reference/js/auth.user
       signedIn.value = true;
+      if (!store.state.user) store.commit('setUser', user)
       await new Promise(resolve => setTimeout(resolve, 1000));
       router.push(route.query.redirect || '/')
     // ...
