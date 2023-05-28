@@ -49,6 +49,10 @@
                 </li>
               </ul>
             </div>
+            <div class="w-30">
+              <label for="title-input" class="form-control-label">Link</label>
+              <argon-input @value="(x) => link = x.value" type="text" :value="post ? post.link : ''" />
+            </div>
           </div>
           <!-- <argon-input @value="(x) => title = x.value" type="text" :value="post ? post.title : ''" /> -->
         </div>
@@ -132,6 +136,7 @@ const desc = ref('');
 const post = ref(null);
 const img = ref('')
 const type = ref('')
+const link = ref('')
 const random = ref(0)
 const showMenu = ref(false)
 const { files, open, reset, onChange } = useFileDialog()
@@ -192,7 +197,7 @@ async function apply (state) {
 function xhr() {
   setTimeout(async () =>
   {
-    await writeJobs(title.value.length ? title.value : post.value.title, desc.value.length ? desc.value : post.value.desc, type.value ? type.value : post.value.type, url.value ? url.value : post.value.img, route.params.id === 'new' ? random.value : route.params.id, Date.now());
+    await writeJobs(title.value.length ? title.value : post.value.title, desc.value.length ? desc.value : post.value.desc, type.value ? type.value : post.value.type, url.value ? url.value : post.value.img, route.params.id === 'new' ? random.value : route.params.id, link.value ? link.value : post.value.link, Date.now());
     router.push('/jobs');
   }, 500)
 }

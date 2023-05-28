@@ -2,7 +2,7 @@
   <div v-if="confirm"
     class="position-fixed w-100 h-100 d-flex justify-content-center align-items-center z-index-3 top-0 left-0">
     <info-card class="position-relative z-index-3" @clicked="del(confirm)" @cancel="confirm = 0"
-      title="Are you sure?" desc="You are about to delete an existing job listing." button="Delete" buttonColor="danger" />
+      title="Are you sure?" desc="You are about to delete an existing blog post." button="Delete" buttonColor="danger" />
     <div class="bg-white opacity-5 h-100 w-100 position-absolute top-0 left-0" />
   </div>
   <div class="card">

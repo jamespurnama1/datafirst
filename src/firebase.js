@@ -26,7 +26,7 @@ export function persistence(checked) {
 // here we can export reusable database references
 export const blogRef = ref(db, 'blog')
 export const jobsRef = ref(db, 'jobs')
-export const writeJobs = (title, desc, type, img, slug, date) => {
+export const writeJobs = (title, desc, type, img, slug, link, date) => {
   // store.dispatch('incrementProgress');
   set(ref(db, 'jobs/' + slug), {
     title,
@@ -34,6 +34,7 @@ export const writeJobs = (title, desc, type, img, slug, date) => {
     type,
     img,
     slug,
+    link,
     date
   })
   // .then(() => {
