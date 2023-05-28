@@ -5,6 +5,7 @@ import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import Pages from 'vite-plugin-pages'
+import mkcert from 'vite-plugin-mkcert'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -14,7 +15,8 @@ export default defineConfig({
     //   include: [/vue-search-input/, /node_modules/]
     // }
   },
-  plugins: [vue(), Pages(),],
+  server: { https: true },
+  plugins: [vue(), Pages(), mkcert()],
   resolve: {
     alias: [
       // {find: /^vue-search-input\//, replacement: '/node_modules/vue-search-input/'},

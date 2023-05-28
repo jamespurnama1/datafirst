@@ -91,10 +91,10 @@ onBeforeUnmount(() => {
 
 <template>
   <main class="w-screen mt-12 lg:mt-20 pb-10 lg:pb-5">
-    <section class="flex items-center relative min-h-[75vh] !m-0">
+    <section class="flex items-center relative h-[75vh] !min-h-[750px] !m-0">
       <div class="text-white lg:text-black flex flex-col mx-6 my-12 lg:mx-24 lg:my-36 lg:w-1/2 lg:ml-auto">
         <h2 class="font-normal text-sm md:text-2xl text-center lg:text-left">Data Analytics</h2>
-        <h1 class="split font-bold text-4xl lg:text-8xl my-2 text-center lg:text-left"><span>Unlock
+        <h1 class="split font-bold text-4xl lg:text-6xl my-2 text-center lg:text-left"><span>Unlock
           </span><span>the </span><span class="text-teal-900">power </span><span class="text-teal-900">of </span><span class="text-teal-900">data </span><span>with </span><span>the </span><span>right </span><span>analytics</span><span>&nbsp;solution. </span></h1>
         <p class="my-2 lg:text-xl text-center lg:text-left">Be the first one to understand your customers. Equip your team with the insight they need to create actionable plans and make fast &amp; accurate data-driven decisions through our analytics&nbsp;tool.</p>
         <button class="bg-teal-900 hover:scale-110 hover:shadow-[0_0_50px_0_rgba(0,0,0,0.3)] hover:shadow-teal-900/80 transition-all rounded-3xl my-2 py-3 px-5 2xl:py-5 2xl:px-12 text-white font-bold lg:ml-0 mx-auto text-sm md:text-lg 2xl:text-2xl"><router-link to="/contact">Schedule a Demo</router-link></button>

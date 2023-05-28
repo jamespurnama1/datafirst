@@ -101,9 +101,9 @@ const clients = [
 
 <template>
   <main class="w-screen">
-    <section class="flex items-center relative overflow-hidden h-[75vh] !m-0">
+    <section class="flex items-center relative overflow-hidden h-[75vh] !min-h-[750px] !m-0">
       <div class="flex flex-col lg:mx-24 mx-auto my-36">
-        <h1 class="split text-white font-bold text-4xl md:text-8xl 2xl:text-9xl my-2 text-center lg:text-left"><span>It </span><span>all </span><span>starts </span><br><span>with&nbsp;</span><span>data.</span></h1>
+        <h1 class="split text-white font-bold text-4xl md:text-6xl 2xl:text-9xl my-2 text-center lg:text-left"><span>It </span><span>all </span><span>starts </span><br><span>with&nbsp;</span><span>data.</span></h1>
         <p class="my-2 text-white lg:text-2xl text-center lg:text-left">Growth starts here.<br>Unleash the power of data with the right resources and&nbsp;insights.</p>
         <button class="bg-teal-900 hover:bg-teal-500 hover:scale-110 transition-all rounded-3xl my-2 py-3 px-5 2xl:py-5 2xl:px-12 text-white hover:text-teal-900 font-bold lg:ml-0 mx-auto text-sm md:text-lg 2xl:text-2xl"><router-link to="/solutions/DataAnalytics">Find Out How</router-link></button>
       </div>
@@ -112,10 +112,10 @@ const clients = [
     <section class="appear mx-2 lg:mx-24 rounded-3xl shadow-lg bg-white py-12 lg:px-36 px-4 flex lg:justify-between items-center justify-center lg:flex-row flex-col lg:gap-0 gap-5">
       <h2 class="text-teal-900 font-bold lg:text-left text-center leading-tight">Trusted by Industry Leaders</h2>
       <div class="flex content-center flex-col items-center h-full">
-        <div class="lg:m-5 flex items-center flex-wrap justify-center">
+        <div class="lg:mt-5 flex items-center flex-wrap justify-center">
           <img class="object-contain w-12 md:w-32 lg:w-36 h-auto my-2 mx-5" v-for="client in clients.slice(0,3)" :src="`/logo/${client.replace(/ /g,'_')}.png`" :alt="client"/>
         </div>
-        <div class="lg:m-5 flex items-center flex-wrap justify-center">
+        <div class="lg:mb-5 flex items-center flex-wrap justify-center">
           <img class="object-contain w-12 md:w-32 lg:w-36 h-auto my-2 mx-5" v-for="client in clients.slice(-4)" :src="`/logo/${client.replace(/ /g, '_')}.png`" :alt="client"/>
         </div>
       </div>
@@ -163,10 +163,10 @@ const clients = [
       </div>
     </section>
     <section>
-      <div class="appear relative rounded-3xl bg-gray py-5 md:py-12 lg:px-36 px-12">
+      <div class="appear relative rounded-3xl bg-gray py-5 md:py-12 lg:px-24 2xl:px-36 px-12">
         <p>In their own words</p>
-        <q class="font-bold leading-snug text-lg md:text-3xl lg:text-6xl 2xl:text-8xl text-teal-900 mt-3 w-11/12 block">It has been an eye-opening experience working with Datafirst Solutions, especially with their professional support and constant engagement in implementing different analytics projects.</q>
-        <img class="absolute bottom-5 md:bottom-12 lg:right-36 right-12 h-auto w-16 md:w-24 lg:w-48" src="/logo/Jumeirah_Group.png" alt="Jumeirah Group Logo" />
+        <q class="font-bold leading-snug text-lg md:text-3xl lg:text-5xl 2xl:text-8xl text-teal-900 mt-3 w-11/12 block">It has been an eye-opening experience working with Datafirst Solutions, especially with their professional support and constant engagement in implementing different analytics projects.</q>
+        <img class="absolute bottom-5 md:bottom-12 lg:right-24 right-12 h-auto w-16 md:w-24 lg:w-36 2xl:w-48" src="/logo/Jumeirah_Group.png" alt="Jumeirah Group Logo" />
       </div>
     </section>
     <PartnersSection />

@@ -144,10 +144,10 @@ onBeforeUnmount(() => {
       <h2 class="split flex items-end justify-center font-bold text-center leading-tight"><span>What </span><span><img class="w-16 md:w-40 lg:w-52 mt-auto mb-2 md:mb-3 lg:mb-5 mx-2 md:mx-3 lg:mx-5" src="/solutions/FLOW/Logo.svg" alt="FLOW Logo" /></span><span>offers </span></h2>
       <div class="appear select relative rounded-3xl shadow-lg bg-white py-5 lg:py-6 px-3 md:px-6 lg:px-12 w-full overflow-hidden">
         <ul class="text-black grid grid-cols-2 lg:grid-cols-4 gap-y-5 cursor-pointer">
-          <li class="dashboard font-medium text-sm md:text-base text-center mx-auto my-auto" @click="changeState('dashboard')">Dashboard &amp; Analytics</li>
-          <li class="ML font-medium text-sm md:text-base text-center mx-auto my-auto" @click="changeState('ML')">Artificial Intellegence &amp; ML</li>
-          <li class="data font-medium text-sm md:text-base text-center mx-auto my-auto" @click="changeState('data')">Data Integration</li>
-          <li class="decision font-medium text-sm md:text-base text-center mx-auto my-auto" @click="changeState('decision')">Strategic Decision Making</li>
+          <li class="dashboard font-medium text-sm md:text-base text-center mx-auto my-auto" @click="changeState('dashboard')">Improve Restaurant Performance</li>
+          <li class="ML font-medium text-sm md:text-base text-center mx-auto my-auto" @click="changeState('ML')">Seamless Integration</li>
+          <li class="data font-medium text-sm md:text-base text-center mx-auto my-auto" @click="changeState('data')">Discount &amp; Promotional Analytics</li>
+          <li class="decision font-medium text-sm md:text-base text-center mx-auto my-auto" @click="changeState('decision')">Menu Optimization</li>
         </ul>
         <div class="selector absolute top-0 left-0 h-1 w-[1px] transition-transform origin-left z-10" />
         <transition name="fade" mode="out-in">
