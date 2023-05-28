@@ -113,7 +113,7 @@ export const getUser = () => user;
 export function updateUser(x) {
   if (auth.currentUser.uid === 'ES68S2SIKWbS97tjBXTQ3J1kVbe2') throw 403
   updateProfile(auth.currentUser, {
-    displayName: x
+    "displayName": x
   }).then(() => {
     window.location.reload();
   }).catch((error) => {
@@ -123,7 +123,7 @@ export function updateUser(x) {
 }
 
 export function updateMail(x) {
-  if (auth.currentUser.uid === 'ES68S2SIKWbS97tjBXTQ3J1kVbe2') throw 403
+  if (auth.currentUser.uid === 'ES68S2SIKWbS97tjBXTQ3J1kVbe2' || 'm0hxAG1yX9Qm0Zk8AV1NBKJH4vh2') throw 403
   updateEmail(auth.currentUser, "user@example.com").then(() => {
     // Email updated!
     // ...
