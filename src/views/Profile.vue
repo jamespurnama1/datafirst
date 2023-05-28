@@ -116,7 +116,7 @@
             <div class="card-header pb-0">
               <div class="d-flex align-items-center">
                 <p class="mb-0">Edit Profile</p>
-                <argon-button :disabled="store.state.user.uid === superAdmin || DFAdmin" @click="confirm = true" color="danger" size="sm" class="ms-auto">Delete Account</argon-button>
+                <argon-button :disabled="store.state.user.uid === superAdmin || store.state.user.uid === DFAdmin" @click="confirm = true" color="danger" size="sm" class="ms-auto">Delete Account</argon-button>
               </div>
             </div>
             <div class="card-body">
@@ -124,14 +124,14 @@
               <div class="row">
                 <div class="col-md-6">
                   <label for="example-text-input" class="form-control-label">Name</label>
-                  <argon-input :disabled="store.state.user.uid === superAdmin || DFAdmin" @value="(x) => name = x" type="text" :value="store.state.user.displayName ? store.state.user.displayName : ''" />
+                  <argon-input :disabled="store.state.user.uid === superAdmin || store.state.user.uid === DFAdmin" @value="(x) => name = x.value" type="text" :value="store.state.user.displayName ? store.state.user.displayName : ''" />
                 </div>
                 <div class="col-md-6">
                   <label for="example-text-input" class="form-control-label">Email address</label>
-                  <argon-input :disabled="store.state.user.uid === superAdmin || DFAdmin" @value="(x) => email = x" type="email" :value="store.state.user.email" />
+                  <argon-input :disabled="store.state.user.uid === superAdmin || store.state.user.uid === DFAdmin" @value="(x) => email = x.value" type="email" :value="store.state.user.email" />
                 </div>
                 <div class="d-flex align-items-center">
-                  <argon-button :disabled="store.state.user.uid === superAdmin || DFAdmin" @click="apply()" color="success" size="sm" class="ms-auto">Apply</argon-button>
+                  <argon-button :disabled="store.state.user.uid === superAdmin || store.state.user.uid === DFAdmin" @click="apply()" color="success" size="sm" class="ms-auto">Apply</argon-button>
                 </div>
                 <!-- <div class="col-md-6">
                   <label for="example-text-input" class="form-control-label">First name</label>
@@ -203,10 +203,11 @@ const name = ref('')
 const email = ref('')
 const pass = ref('')
 const superAdmin = ref('ES68S2SIKWbS97tjBXTQ3J1kVbe2')
-const DFAdmin = ref('m0hxAG1yX9Qm0Zk8AV1NBKJH4vh')
+const DFAdmin = ref('m0hxAG1yX9Qm0Zk8AV1NBKJH4vh2')
 const props = defineProps(['signedIn']);
 
 function apply() {
+  console.log(name.value)
   if (name.value) updateUser(name.value)
   if (email.value) updateMail(email.value);
 }
