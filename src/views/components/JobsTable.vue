@@ -61,7 +61,7 @@
                 <span class="badge badge-sm" :class="badgeClasses(job.type)">{{ job.type.replace(/([A-Z])/g, ' $1').trim() }}</span>
               </td>
               <td class="align-middle text-center">
-                <a :href="job.link ? job.link : ''" target="_blank" rel="noreferrer noopener" class="text-secondary text-xs font-weight-bold">{{ job.link ? job.link : '' }}</a>
+                <a :href="job.link ? job.link : ''" target="_blank" rel="noreferrer noopener" class="text-secondary limit text-xs font-weight-bold">{{ job.link ? job.link : '' }}</a>
               </td>
               <td class="align-middle text-center">
                 <span class="text-secondary text-xs font-weight-bold">{{ job.date ? formatDate(job.date) : '' }}</span>
