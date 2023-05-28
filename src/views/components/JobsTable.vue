@@ -62,7 +62,7 @@
               </td>
               <td class="align-middle text-center">
                 <a :href="job.link ? job.link : ''" target="_blank" rel="noreferrer noopener" class="d-inline-block text-secondary text-xs font-weight-bold">
-                  <p class="limit">
+                  <p class="limit m-0">
                     {{ job.link ? job.link : '' }}
                   </p>
                 </a>
