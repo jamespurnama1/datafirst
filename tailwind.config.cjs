@@ -4,6 +4,9 @@ module.exports = {
     "./index.html",
     "./src/**/*.{vue,js,ts,jsx,tsx}",
   ],
+  build: {
+    sourcemap: true,
+  },
   theme: {
     extend: {
       colors: {
@@ -20,4 +23,3 @@ module.exports = {
   },
   plugins: [],
 }
-
