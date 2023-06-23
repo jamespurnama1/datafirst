@@ -1,5 +1,5 @@
 <template>
-  <main class="w-screen mt-12 md:mt-24 lg:mt-52 pb-10 md:pb-20 px-12 md:px-32 lg:px-52">
+  <main class="mt-12 md:mt-24 lg:mt-52 pb-10 md:pb-20 px-12 md:px-32 lg:px-52">
     <h1 class="font-bold text-4xl md:text-6xl text-center mb-5">Privacy Policy</h1>
     <p>Datafirst Services cares about your privacy. For this reason, we collect and use personal information only as needed to deliver our products, services, websites and mobile applications, and to communicate with you about the same, or as you have requested (collectively, our “Services”). Your personal information includes information such as:
     <br>

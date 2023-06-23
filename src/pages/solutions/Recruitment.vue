@@ -107,7 +107,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <main class="w-screen mt-12 lg:mt-20 pb-10 lg:pb-5">
+  <main class="mt-12 lg:mt-20 pb-10 lg:pb-5">
     <section class="flex items-center relative min-h-[75vh] !m-0">
       <div class="text-white lg:text-black flex flex-col mx-6 my-12 lg:mx-24 lg:my-36 lg:w-1/2 lg:ml-auto">
         <h2 class="font-normal text-sm md:text-2xl text-center lg:text-left">IT Recruitment &amp; Outsourcing</h2>

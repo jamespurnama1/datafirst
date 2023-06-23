@@ -37,7 +37,7 @@ onBeforeUnmount(() => {
 })
 </script>
 <template>
-  <main class="w-screen pt-24 pb-16 lg:pb-10 px-6 lg:px-24 mt-8 lg:mt-24">
+  <main class="pt-24 pb-16 lg:pb-10 px-6 lg:px-24 mt-8 lg:mt-24">
     <div class="flex flex-col lg:flex-row lg:justify-between items-center justify-start mb-10 lg:mb-0">
       <div>
         <h1 class="split text-4xl lg:text-8xl 2xl:text-9xl font-bold lg:text-left text-center"><span>We </span><span>go </span><span>far </span><span>by </span><br><span>going</span>&nbsp;<span class="text-teal-900">together.</span></h1>

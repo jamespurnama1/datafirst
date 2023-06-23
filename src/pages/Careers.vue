@@ -1,5 +1,5 @@
 <template>
-  <main class="mt-20 w-screen text-white pb-10">
+  <main class="mt-20 text-white pb-10">
     <div v-if="Object.keys(read).length" ref="postEl"
       class="read text-black bg-white flex flex-col rounded-xl z-50 fixed w-[80vw] h-[80vh] left-1/2 top-1/2 -translate-x-1/2 -translate-y-[45%] shadow-xl overflow-y-scroll">
       <button class="absolute right-3 top-3 md:right-8 md:top-8 cursor-pointer w-3 h-3 md:w-5 md:h-5" @click="read = {}">
@@ -15,9 +15,10 @@
         </svg>
       </button>
       <h3 class="m-5 md:m-16">{{ read.title }}</h3>
-      <article class="m-5 md:m-16">{{ read.desc }}</article>
-      <button><a :href="read.link" target="_blank" rel="noreferrer noopener" class="text-orange cursor-pointer">Apply now</a></button>
+      <article class="m-5 md:m-16" v-html="read.desc" />
+      <button class="mb-5"><a :href="read.link" target="_blank" rel="noreferrer noopener" class="text-orange cursor-pointer">Apply now</a></button>
     </div>
+    <div v-if="Object.keys(read).length" class="bg-black/75 fixed w-[100vw] h-[100vh] top-0 left-0 z-40" />
     <section class="flex items-center justify-center lg:justify-end relative overflow-hidden h-[75vh] !m-0">
       <div class="flex flex-col mx-6 my-12 lg:mx-24 lg:my-36 lg:w-1/3 lg:ml-auto">
         <h1 class="split text-white font-bold text-4xl md:text-6xl my-2 text-center lg:text-left"><span>With

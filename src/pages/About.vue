@@ -60,7 +60,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <main class="w-screen text-white mt-20">
+  <main class="text-white mt-20">
     <section class="flex items-center lg:justify-end relative overflow-hidden h-[75vh] !m-0">
       <div class="flex flex-col mx-6 my-12 lg:mx-24 lg:my-36 lg:w-1/2 lg:ml-auto">
         <h1 class="split text-white font-bold text-4xl md:text-6xl my-2 text-left"><span>At </span><span>a </span><span>time </span><br><span>where </span><span>data </span><span>is </span><span>king,<br></span><span>we </span><span>help </span><span>you </span><span>make </span><span>the </span><span>most </span><span>out </span><span>of </span><span>it.</span></h1>

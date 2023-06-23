@@ -80,7 +80,7 @@ watch(() => route.name, () => {
       </div>
     </div>
     <Transition name="slideIn">
-    <ul v-show="width > 1024 || (opened && width <= 1024)" class="flex lg:flex-row flex-col lg:bg-transparent lg:m-0 ml-auto m-auto text-center transition-opacity absolute lg:relative lg:h-auto h-screen lg:w-auto w-screen lg:justify-normal justify-center lg:left-auto left-0" :class="[darkMode ? 'bg-black text-white' : 'bg-white text-black']">
+    <ul v-show="width > 1024 || (opened && width <= 1024)" class="flex lg:flex-row flex-col lg:bg-transparent lg:m-0 ml-auto m-auto text-center transition-opacity absolute lg:relative lg:h-auto h-screen lg:w-auto w-full lg:justify-normal justify-center lg:left-auto left-0" :class="[darkMode ? 'bg-black text-white' : 'bg-white text-black']">
       <li v-if="width <= 1024" class="py-2 lg:py-0 px-6 hover:text-teal-900" :class="[solutions ? '-translate-y-[200%] lg:translate-y-0' :'']"><router-link to="/" @click="opened = false"><p>Home</p></router-link></li>
       <li class="cursor-pointer py-2 lg:py-0 px-6 hover:text-teal-900" :class="[solutions ? '-translate-y-[200%] lg:translate-y-0' :'']"><router-link to="/about" @click="opened = false"><p>About Us</p></router-link></li>
       <li class="flex flex-col items-center cursor-pointer py-2 lg:py-0 px-6 hover:text-teal-900 relative" :class="[solutions ? 'text-teal-900' : '', darkMode ? 'bg-black' : 'bg-white', solutions ? '-translate-y-[200%] lg:translate-y-0' : '']">

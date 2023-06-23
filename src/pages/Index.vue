@@ -100,7 +100,7 @@ const clients = [
 </script>
 
 <template>
-  <main class="w-screen">
+  <main class="">
     <section class="flex items-center relative overflow-hidden h-[75vh] !min-h-[750px] !m-0">
       <div class="flex flex-col lg:mx-24 mx-auto my-36">
         <h1 class="split text-white font-bold text-4xl md:text-6xl 2xl:text-9xl my-2 text-center lg:text-left"><span>It </span><span>all </span><span>starts </span><br><span>with&nbsp;</span><span>data.</span></h1>
