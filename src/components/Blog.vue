@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Swiper, SwiperSlide } from "swiper/vue";
-import { ref, type HtmlHTMLAttributes } from 'vue';
+import { ref } from 'vue';
 import { useRoute } from 'vue-router'
 import { Autoplay } from "swiper"
 import 'swiper/css';
@@ -10,6 +10,8 @@ const props = defineProps<{
   width: number
   limit: number
 }>()
+
+const emit = defineEmits(['clicked'])
 
 interface data {
   title: string; status: string; img: string; slug: number; author: string; content: HTMLCollection; date: Date;
@@ -24,6 +26,20 @@ getAll('blog').then((x) => {
     if (posts.value[key].status !== 'published') delete posts.value[key];
   });
   getKeys('')
+  if (typeof route.query.post !== 'undefined') {
+    const opened = {}
+    Object
+      .entries(posts.value)
+      .forEach(x => {
+        Object.keys(x[1])
+          .forEach(y => {
+            if (x[1][y].toString().includes(route.query.post)) {
+              opened[x[1].slug] = x[1]
+            }
+          })
+      })
+    emit('clicked', opened[route.query.post])
+  }
 }).catch((error) => {
   console.error(error)
 });
@@ -67,7 +83,13 @@ defineExpose({
           <div class="absolute z-10 top-0 left-0 w-full h-full bg-gradient-to-b from-transparent from-30% md:from-40% to-white to-50% md:to-75%" />
           <img class="absolute top-0 left-0 w-full md:h-3/4 h-1/2 object-cover" :src="value.img" :alt="value.title" />
           <h3 class="relative z-20 text-base md:text-lg lg:text-3xl">{{ value.title }}</h3>
-          <button @click="(e) => { $emit('clicked', value); if(route.path=== '/') $router.push('/blog')}" class="read text-orange mt-1 relative z-20 mr-auto hover:underline"><p class="md:text-lg">Continue Reading</p></button>
+          <button @click="() => { $emit('clicked', value)}" class="read text-orange mt-1 relative z-20 mr-auto hover:underline">
+            <p class="md:text-lg">
+              <router-link :to="`/blog?post=${value.slug}`">
+                Continue Reading
+              </router-link>
+            </p>
+          </button>
       </component>
     </component>
   </section>

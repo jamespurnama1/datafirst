@@ -4,6 +4,7 @@ import SearchInput from 'vue-search-input'
 import { onMounted, onBeforeUnmount, ref, type DefineComponent } from 'vue';
 import Blog from '@/components/Blog.vue';
 import useDetectOutsideClick from '@/useDetectOutsideClick'
+import { useRoute, useRouter } from 'vue-router';
 
 defineProps<{
   width: number
@@ -14,6 +15,8 @@ const data = ref({} as {} | {title: string, slug: string, img: string, author: s
 const postEl = ref(null as null | HTMLElement)
 const opened = ref(0)
 const component = ref(null as null | DefineComponent);
+const route = useRoute();
+const router = useRouter();
 
 function input(text:string) {
   searchVal.value = text
@@ -26,11 +29,15 @@ useDetectOutsideClick(postEl, (e: MouseEvent) => {
   if (Object.keys(data.value).length && opened.value) {
     e.preventDefault()
     data.value = {}
+    // window.alert('test')
+    router.push('/blog')
+  } else {
   }
 })
 
 onMounted(async () => {
   await new Promise(resolve => setTimeout(resolve, 1000));
+  // route.params ? data.value =
   ScrollTrigger.batch(".appear", {
     onEnter: (elements, triggers) => {
       gsap.to(elements, { opacity: 1, y: 0, stagger: 0.15 });
@@ -66,7 +73,7 @@ onBeforeUnmount(() => {
 <template>
   <main class="mt-20 w-screen pb-10">
     <div v-if="Object.keys(data).length" ref="postEl" class="read bg-white flex flex-col rounded-xl z-50 fixed w-[80vw] h-[80vh] left-1/2 top-1/2 -translate-x-1/2 -translate-y-[45%] shadow-xl overflow-y-scroll">
-      <button class="absolute right-3 top-3 md:right-8 md:top-8 cursor-pointer w-3 h-3 md:w-5 md:h-5" @click="data = {}">
+      <button class="absolute right-3 top-3 md:right-8 md:top-8 cursor-pointer w-3 h-3 md:w-5 md:h-5" @click="data = {}; opened = 0; router.push('/blog')">
         <svg fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 460.775 460.775" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M285.08,230.397L456.218,59.27c6.076-6.077,6.076-15.911,0-21.986L423.511,4.565c-2.913-2.911-6.866-4.55-10.992-4.55 c-4.127,0-8.08,1.639-10.993,4.55l-171.138,171.14L59.25,4.565c-2.913-2.911-6.866-4.55-10.993-4.55 c-4.126,0-8.08,1.639-10.992,4.55L4.558,37.284c-6.077,6.075-6.077,15.909,0,21.986l171.138,171.128L4.575,401.505 c-6.074,6.077-6.074,15.911,0,21.986l32.709,32.719c2.911,2.911,6.865,4.55,10.992,4.55c4.127,0,8.08-1.639,10.994-4.55 l171.117-171.12l171.118,171.12c2.913,2.911,6.866,4.55,10.993,4.55c4.128,0,8.081-1.639,10.992-4.55l32.709-32.719 c6.074-6.075,6.074-15.909,0-21.986L285.08,230.397z"></path> </g></svg>
       </button>
       <h3 class="m-5 md:m-16">{{ data.title }}</h3>
@@ -89,7 +96,7 @@ onBeforeUnmount(() => {
       >
       </SearchInput>
     </section>
-    <Blog @clicked="(e) => {data = e}" ref="component" :limit="0" :width="width" />
+    <Blog @clicked="(e) => {data = e; opened = 1}" ref="component" :limit="0" :width="width" />
   </main>
 </template>
 

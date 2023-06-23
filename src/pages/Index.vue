@@ -108,7 +108,7 @@ const clients = [
         <button class="bg-teal-900 hover:bg-teal-500 hover:scale-110 transition-all rounded-3xl my-2 py-3 px-5 2xl:py-5 2xl:px-12 text-white hover:text-teal-900 font-bold lg:ml-0 mx-auto text-sm md:text-lg 2xl:text-2xl"><router-link to="/solutions/DataAnalytics">Find Out How</router-link></button>
       </div>
     <video preload="true" loop muted autoplay playsinline class="object-cover -z-10 absolute top-0 left-0 brightness-75 w-full h-full">
-      <source src="/Hero.webm" type="video/webm" />
+      <!-- <source src="/Hero.webm" type="video/webm" /> -->
       <source src="/Hero.mp4" type="video/mp4" />
     </video>
     </section>
